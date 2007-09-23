@@ -3,9 +3,12 @@
 #include "Field.h"
 #include "Ball.h"
 #include "Team.h"
+#include "GLDraw.h"
 
-Team t1(Team::TEAM_A);
-Team t2(Team::TEAM_B);
+
+Team t1(Team::Color_BLUE);
+Team t2(Team::Color_RED);
+GLDraw draw;
 
 void Init(void)
 {
@@ -34,15 +37,14 @@ void display()
 	glDisable(GL_LIGHTING);
 
 	Field field;
-	field.draw();
+	draw.draw(field);
 
-	Ball ball(Point(45,0));
-	ball.draw();
+	draw.draw(Point(45,0));
 
 	t1.run();
 	t2.run();
-	t1.draw();
-	t2.draw();
+	draw.draw(t1);
+	draw.draw(t2);
 
 	glutSwapBuffers();
 	glFlush();

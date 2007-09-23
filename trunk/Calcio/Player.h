@@ -8,11 +8,11 @@ class Player
 public:
 	Player(const Point& p, int n);
 
-	void draw();
-
-	int number() const;
 	Point& position();
 	const Point& position() const;
+
+	float radius() const;
+	int number() const;
 
 private:
 	Point _p;

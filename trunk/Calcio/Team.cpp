@@ -1,26 +1,44 @@
 #include "Team.h"
 #include <GL/glut.h>
 
-Team::Team(SQUAD sq) : _sq(sq)
+Team::Team(Color color)
+	:	_color(color)
 {
-	_player.push_back(Player(Point(50.0f*_sq,0), 6));
+	if (_color == Color_RED)
+		_player.push_back(Player(Point(50.0f,0), 6));
+	else
+		_player.push_back(Player(Point(50.0f*-1,0), 6));
+}
+
+Team::Color Team::color() const
+{
+	return _color;
 }
 
 void Team::run()
 {
-	_player[0].position().x()+= 0.1f*_sq;
-}
-
-void Team::draw()
-{
-	glPushAttrib(GL_CURRENT_BIT);
-	
-	if (TEAM_A == _sq)
-		glColor3f(1.0f,0.0f,0.0f);
+	if (_color == Color_RED)
+		_player[0].position().x()+= 0.1f;
 	else
-		glColor3f(0.0f,0.0f,1.0f);
-
-	_player[0].draw();
-	glPopAttrib();
+		_player[0].position().x()+= 0.1f*-1;	
 }
 
+Team::PlayersConstIterator Team::playersBegin() const
+{
+	return _player.begin();
+}
+
+Team::PlayersConstIterator Team::playersEnd() const
+{
+	return _player.end();
+}
+
+Team::PlayersIterator Team::playersBegin()
+{
+	return _player.begin();
+}
+
+Team::PlayersIterator Team::playersEnd()
+{
+	return _player.end();
+}

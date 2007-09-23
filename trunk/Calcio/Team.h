@@ -7,16 +7,30 @@
 
 class Team
 {
+	typedef std::vector<Player> Players;
 public:
-	enum SQUAD{TEAM_A=-1,TEAM_B=1};
-	Team(SQUAD s);
+	typedef Players::const_iterator PlayersConstIterator;
+	typedef Players::iterator PlayersIterator;
+
+	enum Color
+	{
+		Color_BLUE, Color_RED
+	};
+
+	Team(Color color);
+
+	Color color() const;
 
 	void run();
 
-	void draw();
+	PlayersConstIterator playersBegin() const;
+	PlayersConstIterator playersEnd() const;
+	PlayersIterator playersBegin();
+	PlayersIterator playersEnd();
+
 private:
-	std::vector<Player> _player;
-	SQUAD _sq;
+	Players _player;
+	Color _color;
 };
 
 #endif

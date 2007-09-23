@@ -1,22 +1,24 @@
 #ifndef FIELD_H
 #define FIELD_H
 
-#include "Point.h"
+#include "Rectangle.h"
+#include "Line.h"
 
 class Field
 {
 public:
 	Field();
 
-	void draw();
+	const Rectangle& corner() const;
+	const Line& mid() const;
+	const Rectangle& boxLeft() const;
+	const Rectangle& boxRight() const;
 
 private:
-	void drawLoop(Point* points, int size);
-
-	Point _corner[4];
-	Point _mid[2];
-	Point _boxLeft[4];
-	Point _boxRight[4];
+	Rectangle _corner;
+	Line _mid;
+	Rectangle _boxLeft;
+	Rectangle _boxRight;
 };
 
 #endif

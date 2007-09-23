@@ -14,11 +14,6 @@ public:
 
 	void set(float x, float y);
 
-	operator float*()
-	{
-		return _p;
-	}
-
 private:
 	float _p[2];
 };

@@ -8,10 +8,9 @@ class Ball
 public:
 	Ball(const Point& p);
 
-	void draw();
-
 	Point& position();
 	const Point& position() const;
+	float radius() const;
 
 private:
 	Point _p;
@@ -19,5 +18,3 @@ private:
 };
 
 #endif
-
-
