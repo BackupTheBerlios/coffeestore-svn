@@ -193,11 +193,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\DummyFactory.h"
-				>
-			</File>
-			<File
-				RelativePath=".\DummyPlayer.h"
+				RelativePath=".\DummyTeam.h"
 				>
 			</File>
 			<File
@@ -271,11 +267,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\DummyFactory.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\DummyPlayer.cpp"
+				RelativePath=".\DummyTeam.cpp"
 				>
 			</File>
 			<File

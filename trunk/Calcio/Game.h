@@ -7,13 +7,13 @@
 #include "Perceptions.h"
 
 class PlayerAction;
-class PlayerFactory;
+class TeamFactory;
 class Player;
 
 class Game
 {
 public:
-	Game(PlayerFactory& playerFactory);
+	Game(TeamFactory& teamFactory);
 
 	const Field& field() const;
 	const Ball& ball() const;
@@ -24,7 +24,7 @@ public:
 	void update();
 
 private:
-	void initTeams(PlayerFactory& playerFactory);
+	void initTeams(TeamFactory& teamFactory);
 
 	void updateTeam(const Team& team);
 	void updateGameStatus(Player& player, const PlayerAction& playerAction);

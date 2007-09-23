@@ -6,9 +6,11 @@
 class PerceivedPlayer
 {
 public:
-	PerceivedPlayer(const Point& pos);
+	PerceivedPlayer(const Point& pos, int number);
 	const Point& position() const;
+	int number() const;
 private:
+	int _number;
 	Point _pos;
 };
 

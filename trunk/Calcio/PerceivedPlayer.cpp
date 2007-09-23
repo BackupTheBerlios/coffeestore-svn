@@ -1,9 +1,14 @@
 #include "PerceivedPlayer.h"
 
-PerceivedPlayer::PerceivedPlayer(const Point& pos)
-:_pos(pos)
+PerceivedPlayer::PerceivedPlayer(const Point& pos, int number)
+	:_pos(pos), _number(number)
 {
 
+}
+
+int PerceivedPlayer::number() const
+{
+	return _number;
 }
 
 const Point& PerceivedPlayer::position() const

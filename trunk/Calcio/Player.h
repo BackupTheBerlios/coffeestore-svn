@@ -8,9 +8,9 @@ class AbstractPlayer;
 class Player
 {
 public:
-	Player(const AbstractPlayer& player);
+	Player(AbstractPlayer& player);
 
-	const AbstractPlayer& abstractPlayer() const;
+	AbstractPlayer& abstractPlayer();
 
 	Point& position();
 	const Point& position() const;
@@ -18,7 +18,7 @@ public:
 	float radius() const;
 
 private:
-	const AbstractPlayer& _player;
+	AbstractPlayer& _player;
 
 	Point _position;
 	float _radius;

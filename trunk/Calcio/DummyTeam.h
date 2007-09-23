@@ -1,7 +1,8 @@
-#ifndef DUMMY_TEAM_FACTORY_H
-#define DUMMY_TEAM_FACTORY_H
+#ifndef DUMMY_TEAM_H
+#define DUMMY_TEAM_H
 
 #include "TeamFactory.h"
+#include "AbstractPlayer.h"
 
 class DummyPlayer : public AbstractPlayer
 {
@@ -14,7 +15,7 @@ public:
 class DummyTeamFactory : public TeamFactory
 {
 public:
-	const AbstractPlayer& createPlayer(int number);
+	AbstractPlayer& createPlayer(int number);
 };
 
 #endif

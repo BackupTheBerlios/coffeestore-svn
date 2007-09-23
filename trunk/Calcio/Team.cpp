@@ -1,7 +1,7 @@
 #include "Team.h"
 #include "Player.h"
 #include "AbstractPlayer.h"
-#include "PlayerFactory.h"
+#include "TeamFactory.h"
 #include "Convertion.h"
 
 Team::Team(Color color, Side side)
@@ -10,11 +10,14 @@ Team::Team(Color color, Side side)
 
 }
 
-void Team::init(PlayerFactory& playerFactory)
+void Team::init(TeamFactory& teamFactory)
 {
-	Player* player = new Player(playerFactory.create(1));
-	player->position() = Convertion::toAbsoultePosition(player->abstractPlayer().position(), _side);
-	_players.push_back(player);
+	for (int i = 1; i < 3; i++)
+	{
+		Player* player = new Player(teamFactory.createPlayer(i));
+		player->position() = Convertion::toAbsoultePosition(player->abstractPlayer().position(), _side);
+		_players.push_back(player);
+	}
 }
 
 Team::Color Team::color() const

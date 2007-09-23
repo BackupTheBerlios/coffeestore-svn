@@ -2,9 +2,14 @@
 #include "Team.h"
 #include "Game.h"
 #include "Player.h"
+#include "Convertion.h"
+#include "AbstractPlayer.h"
 
-Perceptions::Perceptions(const Game& game,const Player& ply)
-:_player(ply),_ball(initBall(game))
+Perceptions::Perceptions(const Game& game, Team::Color color, const Player& player)
+	:	_player(player),
+		_ownTeam((Team::Color_BLUE == color) ? game.teamBlue() : game.teamRed()),
+		_opponentTeam((Team::Color_RED == color) ? game.teamBlue() : game.teamRed()),
+		_ball(initBall(game))
 {
 	initOpponentVect(game);
 	initTeamMateVect(game);
@@ -37,15 +42,45 @@ const Point& Perceptions::playerPosition() const
 
 Ball Perceptions::initBall(const Game& game)
 {
-	return _ball;
+	return Ball(Convertion::toRelativePosition(game.ball().position(), ownTeamSide()));
 }
 
 void Perceptions::initOpponentVect(const Game& game)
 {
-
+	for (Team::PlayersConstIterator it = _opponentTeam.playersBegin(); it != _opponentTeam.playersEnd(); it++)
+	{
+		Player* player = (*it);
+		Point position = Convertion::toRelativePosition(player->position(), ownTeamSide());
+		_opp.push_back(PerceivedPlayer(position, player->abstractPlayer().number()));
+	}
 }
 
 void Perceptions::initTeamMateVect(const Game& game)
 {
+	for (Team::PlayersConstIterator it = _ownTeam.playersBegin(); it != _ownTeam.playersEnd(); it++) // scartare me stesso
+	{
+		Player* player = (*it);
+		Point position = Convertion::toRelativePosition(player->position(), ownTeamSide());
+		_mate.push_back(PerceivedPlayer(position, player->abstractPlayer().number()));
+	}
+}
 
+Team::Color Perceptions::ownTeamColor() const
+{
+	return _ownTeam.color();
+}
+
+Team::Color Perceptions::opponentTeamColor() const
+{
+	return _opponentTeam.color();
+}
+
+Team::Side Perceptions::ownTeamSide() const
+{
+	return _ownTeam.side();
+}
+
+Team::Side Perceptions::opponentTeamSide() const
+{
+	return _opponentTeam.side();
 }

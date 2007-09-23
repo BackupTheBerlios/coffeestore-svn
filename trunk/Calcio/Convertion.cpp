@@ -5,7 +5,7 @@ namespace Convertion
 
 Point toAbsoultePosition(const Point& point, Team::Side side)
 {
-	return Point(point.x()*side, point.y()*side);
+	return 2.0f * (point - Point(100.0f,100.0f)/2.0f) / float(side);
 }
 
 Vector toAbsoultePosition(const Vector& vector, Team::Side side)
@@ -15,7 +15,7 @@ Vector toAbsoultePosition(const Vector& vector, Team::Side side)
 
 Point toRelativePosition(const Point& point, Team::Side side)
 {
-	return point;
+	return (point * (float)side + Point(100.0f,100.0f))/2.0f;
 }
 
 Vector toRelativePosition(const Vector& vector, Team::Side side)

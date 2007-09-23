@@ -3,16 +3,16 @@
 #include "AbstractPlayer.h"
 #include "Player.h"
 
-Game::Game(PlayerFactory& playerFactory)
+Game::Game(TeamFactory& teamFactory)
 	:	_ball(Point(0.0f,0.0f)), _teamRed(Team::Color_RED, Team::Side_LEFT), _teamBlue(Team::Color_BLUE, Team::Side_RIGHT)
 {
-	initTeams(playerFactory);
+	initTeams(teamFactory);
 }
 
-void Game::initTeams(PlayerFactory& playerFactory)
+void Game::initTeams(TeamFactory& teamFactory)
 {
-	_teamRed.init(playerFactory);
-	_teamBlue.init(playerFactory);
+	_teamRed.init(teamFactory);
+	_teamBlue.init(teamFactory);
 }
 
 const Field& Game::field() const
@@ -32,20 +32,25 @@ void Game::updateGameStatus(Player& player, const PlayerAction& playerAction)
 
 void Game::updateTeam(const Team& team)
 {
-	//for(Team::PlayersConstIterator pit = team.playersBegin(); pit != team.playersEnd(); ++pit)
-	//{
-	//	Player* player = *pit;
-	//	PlayerAction action;
-	//	Perceptions p(*this,*(*pit));
-	//	player->run(p, action);
-	//	updateGameStatus(*player, action);
-	//}
+	for(Team::PlayersConstIterator pit = team.playersBegin(); pit != team.playersEnd(); ++pit)
+	{
+		Player* player = *pit;
+		PlayerAction action;
+		Perceptions perception(*this, team.color(), *(*pit));
+		player->abstractPlayer().run(perception, action);
+		updateGameStatus(*player, action);
+	}
 }
 
 void Game::update()
 {
-	updateTeam(_teamRed);
-	updateTeam(_teamBlue);
+	static bool firstTime = true;
+	if (firstTime)
+	{
+		updateTeam(_teamRed);
+		updateTeam(_teamBlue);
+		firstTime = false;
+	}
 }
 
 const Team& Game::teamRed() const

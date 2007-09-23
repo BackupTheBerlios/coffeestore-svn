@@ -1,10 +1,12 @@
 #include <cstdlib>
 #include <GL/glut.h>
 #include "Game.h"
-#include "DummyFactory.h"
+#include "DummyTeam.h"
 #include "GLDraw.h"
 
-DummyFactory factory;
+#include <cassert>
+
+DummyTeamFactory factory;
 Game game(factory);
 GLDraw draw;
 
@@ -37,6 +39,7 @@ void display()
 	game.update();
 	draw.draw(game);
 
+	assert(glGetError() == GL_NO_ERROR);
 
 	glutSwapBuffers();
 	glFlush();

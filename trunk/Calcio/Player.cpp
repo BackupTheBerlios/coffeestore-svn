@@ -1,12 +1,12 @@
 #include "Player.h"
 
-Player::Player(const AbstractPlayer& player)
+Player::Player(AbstractPlayer& player)
 	:	_player(player), _radius(3)
 {
 
 }
 
-const AbstractPlayer& Player::abstractPlayer() const
+AbstractPlayer& Player::abstractPlayer()
 {
 	return _player;
 }

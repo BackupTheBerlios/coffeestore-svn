@@ -44,8 +44,8 @@ void GLDraw::drawFilledCircle(const Point& point, float radius)
 	glPushMatrix();
 	glLoadIdentity();
 
-	glScalef(450.0f/800.0f,1.0f,1.0f);
 	glTranslatef(point.x(), point.y(), 0.0f);
+	glScalef(450.0f/800.0f,1.0f,1.0f);
 
 	glBegin(GL_POLYGON);
 
