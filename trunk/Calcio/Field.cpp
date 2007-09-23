@@ -29,4 +29,3 @@ const Rectangle& Field::boxRight() const
 {
 	return _boxRight;
 }
-
