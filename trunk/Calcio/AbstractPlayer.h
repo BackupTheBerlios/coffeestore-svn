@@ -1,15 +1,15 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef ABSTARCT_PLAYER_H
+#define ABSTARCT_PLAYER_H
 
 #include "Point.h"
 
 class PlayerAction;
 class Perceptions;
 
-class Player
+class AbstractPlayer
 {
 public:
-	Player(const Point& initialPosition, int number);
+	AbstractPlayer(const Point& initialPosition, int number);
 
 	const Point& position() const;
 	int number() const;

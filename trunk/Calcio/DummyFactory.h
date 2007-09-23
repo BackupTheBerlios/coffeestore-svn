@@ -1,12 +1,14 @@
 #ifndef DUMMY_FACTORY_H
 #define DUMMY_FACTORY_H
 
-class Player;
+#include "PlayerFactory.h"
 
-class DummyFactory
+class AbstractPlayer;
+
+class DummyFactory : public PlayerFactory
 {
 public:
-	const Player& create(int number);
+	const AbstractPlayer& create(int number);
 };
 
 #endif

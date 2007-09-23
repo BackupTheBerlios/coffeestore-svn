@@ -1,12 +1,12 @@
 #ifndef PLAYER_FACTORY_H
 #define PLAYER_FACTORY_H
 
-class Player;
+class AbstractPlayer;
 
 class PlayerFactory
 {
 public:
-	virtual const Player& create(int number) = 0;
+	virtual const AbstractPlayer& create(int number) = 0;
 };
 
 #endif

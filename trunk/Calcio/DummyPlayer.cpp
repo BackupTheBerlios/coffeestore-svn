@@ -1,7 +1,7 @@
 #include "DummyPlayer.h"
 
 DummyPlayer::DummyPlayer(const Point& initialPosition, int number)
-	:	Player(initialPosition, number)
+	:	AbstractPlayer(initialPosition, number)
 {
 
 }

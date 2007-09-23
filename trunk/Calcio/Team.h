@@ -4,6 +4,7 @@
 #include <vector>
 
 class Player;
+class PlayerFactory;
 
 class Team
 {
@@ -14,21 +15,22 @@ public:
 
 	enum Color
 	{
-		Color_BLUE, Color_RED
+		Color_BLUE, 
+		Color_RED
 	};
 
 	enum Side
 	{
-		Side_LEFT = 1, Side_RIGHT = -1
+		Side_LEFT = 1, 
+		Side_RIGHT = -1
 	};
-
 
 	Team(Color color, Side side);
 
+	void init(PlayerFactory& playerFactory);
+
 	Color color() const;
 	Side side() const;
-
-	void run();
 
 	PlayersConstIterator playersBegin() const;
 	PlayersConstIterator playersEnd() const;
@@ -36,7 +38,7 @@ public:
 	PlayersIterator playersEnd();
 
 private:
-	Players _player;
+	Players _players;
 	Color  _color;
 	Side _side;
 };

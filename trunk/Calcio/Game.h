@@ -8,11 +8,12 @@
 
 class PlayerAction;
 class PlayerFactory;
+class Player;
 
 class Game
 {
 public:
-	Game(const PlayerFactory& playerFactory);
+	Game(PlayerFactory& playerFactory);
 
 	const Field& field() const;
 	const Ball& ball() const;
@@ -23,10 +24,11 @@ public:
 	void update();
 
 private:
+	void initTeams(PlayerFactory& playerFactory);
+
 	void updateTeam(const Team& team);
 	void updateGameStatus(Player& player, const PlayerAction& playerAction);
 
-	const PlayerFactory& _playerFactory;
 	Field _field;
 	Ball _ball;
 	Team _teamRed;

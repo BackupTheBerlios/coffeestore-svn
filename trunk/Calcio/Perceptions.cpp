@@ -37,8 +37,7 @@ const Point& Perceptions::playerPosition() const
 
 Ball Perceptions::initBall(const Game& game)
 {
-	Point p = 
-	return Ball(game.side(_player.teamColor()) * game. 
+	return _ball;
 }
 
 void Perceptions::initOpponentVect(const Game& game)

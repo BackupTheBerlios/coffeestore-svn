@@ -1,9 +1,11 @@
 #include <cstdlib>
 #include <GL/glut.h>
 #include "Game.h"
+#include "DummyFactory.h"
 #include "GLDraw.h"
 
-Game game;
+DummyFactory factory;
+Game game(factory);
 GLDraw draw;
 
 void Init(void)
@@ -14,7 +16,7 @@ void Init(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	glEnable(GL_DEPTH_TEST);;
+	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 }
 
