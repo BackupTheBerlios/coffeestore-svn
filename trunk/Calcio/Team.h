@@ -3,12 +3,12 @@
 
 #include <vector>
 
-#include "Player.h"
+class Player;
 
 class Team
 {
-	typedef std::vector<Player> Players;
 public:
+	typedef std::vector<Player*> Players;
 	typedef Players::const_iterator PlayersConstIterator;
 	typedef Players::iterator PlayersIterator;
 

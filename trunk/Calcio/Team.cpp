@@ -1,13 +1,13 @@
 #include "Team.h"
-#include <GL/glut.h>
+#include "Player.h"
 
 Team::Team(Color color)
 	:	_color(color)
 {
 	if (_color == Color_RED)
-		_player.push_back(Player(Point(50.0f,0), 6));
+		_player.push_back(new Player(Point(50.0f,0), 6, _color));
 	else
-		_player.push_back(Player(Point(50.0f*-1,0), 6));
+		_player.push_back(new Player(Point(50.0f*-1,0), 6, _color));
 }
 
 Team::Color Team::color() const
@@ -18,9 +18,9 @@ Team::Color Team::color() const
 void Team::run()
 {
 	if (_color == Color_RED)
-		_player[0].position().x()+= 0.1f;
+		_player[0]->position().x()+= 0.1f;
 	else
-		_player[0].position().x()+= 0.1f*-1;	
+		_player[0]->position().x()+= 0.1f*-1;	
 }
 
 Team::PlayersConstIterator Team::playersBegin() const

@@ -8,6 +8,7 @@ class Ball;
 class Player;
 class Team;
 class Field;
+class Game;
 
 class GLDraw
 {
@@ -16,6 +17,7 @@ public:
 	void draw(const Team& team);
 	void draw(const Player& player);
 	void draw(const Field& field);
+	void draw(const Game& game);
 
 private:
 	void drawFilledCircle(const Point& point, float radius);

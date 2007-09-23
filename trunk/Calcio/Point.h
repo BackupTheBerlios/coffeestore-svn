@@ -18,4 +18,6 @@ private:
 	float _p[2];
 };
 
+Point operator - (const Point& p1, const Point& p2);
+
 #endif

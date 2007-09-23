@@ -16,6 +16,16 @@ const Point& Ball::position() const
 	return _p;
 }
 
+Vector& Ball::direction()
+{
+	return _d;
+}
+
+const Vector& Ball::direction() const
+{
+	return _d;
+}
+
 float Ball::radius() const
 {
 	return _radius;

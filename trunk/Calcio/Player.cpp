@@ -1,9 +1,7 @@
 #include "Player.h"
-#include <GL/glut.h>
-#include <cmath>
 
-Player::Player(const Point& p, int n)
-	:	_p(p), _radius(3), _number(n)
+Player::Player(const Point& p, int n, Team::Color teamColor)
+	:	_p(p), _radius(3), _number(n), _teamColor(teamColor)
 {
 
 }
@@ -28,3 +26,12 @@ int Player::number() const
 	return _number;
 }
 
+Team::Color Player::teamColor() const
+{
+	return _teamColor;
+}
+
+void Player::run(const Perceptions& p, PlayerAction& playerAction)
+{
+
+}

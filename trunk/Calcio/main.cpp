@@ -1,13 +1,9 @@
 #include <cstdlib>
 #include <GL/glut.h>
-#include "Field.h"
-#include "Ball.h"
-#include "Team.h"
+#include "Game.h"
 #include "GLDraw.h"
 
-
-Team t1(Team::Color_BLUE);
-Team t2(Team::Color_RED);
+Game game;
 GLDraw draw;
 
 void Init(void)
@@ -36,15 +32,9 @@ void display()
 	glDisable(GL_LIGHT0);
 	glDisable(GL_LIGHTING);
 
-	Field field;
-	draw.draw(field);
+	game.update();
+	draw.draw(game);
 
-	draw.draw(Ball(Point(45,0)));
-
-	t1.run();
-	t2.run();
-	draw.draw(t1);
-	draw.draw(t2);
 
 	glutSwapBuffers();
 	glFlush();

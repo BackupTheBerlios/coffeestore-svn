@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Team.h"
 #include "Field.h"
+#include "Game.h"
 
 #include <GL/glut.h>
 #include <cmath>
@@ -27,7 +28,7 @@ void GLDraw::draw(const Team& team)
 		glColor3f(0.0f,0.0f,1.0f);
 	
 	for (Team::PlayersConstIterator it = team.playersBegin(); it != team.playersEnd(); ++it)
-		draw(*it);
+		draw(*(*it));
 
 	glPopAttrib();
 }
@@ -89,4 +90,12 @@ void GLDraw::draw(const Field& field)
 	draw(field.mid());
 
 	glPopAttrib();
+}
+
+void GLDraw::draw(const Game& game)
+{
+	draw(game.field());
+	draw(game.ball());
+	draw(game.team(Team::Color_BLUE));
+	draw(game.team(Team::Color_RED));
 }

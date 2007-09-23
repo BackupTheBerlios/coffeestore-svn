@@ -1,5 +1,4 @@
 #include "Field.h"
-#include <GL/glut.h>
 
 Field::Field()
 	:	_corner(Point(-100.0f,-100.0f), Point(100.0f,100.0f)),
