@@ -233,10 +233,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\PlayerFactory.h"
-				>
-			</File>
-			<File
 				RelativePath=".\Point.h"
 				>
 			</File>
@@ -246,6 +242,10 @@
 			</File>
 			<File
 				RelativePath=".\Team.h"
+				>
+			</File>
+			<File
+				RelativePath=".\TeamFactory.h"
 				>
 			</File>
 			<File

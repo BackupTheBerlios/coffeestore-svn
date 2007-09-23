@@ -1,7 +1,7 @@
-#ifndef DUMMY_TEAM_FACTORY_H
-#define DUMMY_TEAM_FACTORY_H
+#ifndef TEAM_FACTORY_H
+#define TEAM_FACTORY_H
 
-#include "TeamFactory.h"
+#include "AbstractPlayer.h"
 
 class DummyPlayer : public AbstractPlayer
 {
@@ -11,10 +11,10 @@ public:
 	void run(const Perceptions& perceptions, PlayerAction& playerAction);
 };
 
-class DummyTeamFactory : public TeamFactory
+class TeamFactory
 {
 public:
-	const AbstractPlayer& createPlayer(int number);
+	virtual const AbstractPlayer& createPlayer(int number) = 0;
 };
 
 #endif

@@ -1,7 +1,17 @@
-#include "DummyFactory.h"
-#include "DummyPlayer.h"
+#include "DummyTeamFactory.h"
 
-const AbstractPlayer& DummyFactory::create(int number)
+DummyPlayer::DummyPlayer(const Point& initialPosition, int number)
+	:	AbstractPlayer(initialPosition, number)
+{
+
+}
+
+void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction)
+{
+
+}
+
+const AbstractPlayer& DummyTeamFactory::createPlayer(int number)
 {
 	return * new DummyPlayer(Point(50,50), number);
 }
