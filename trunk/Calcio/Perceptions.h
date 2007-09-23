@@ -1,27 +1,39 @@
 #ifndef PERCEPTIONS_H
 #define PERCEPTIONS_H
 
+#include <vector>
+
 #include "Point.h"
 #include "Vector.h"
-#include "Team.h"
+#include "PerceivedPlayer.h"
+#include "Ball.h"
 
 class Player;
 class Game;
 
 class Perceptions
 {
-	friend class Game;
 public:
-	Perceptions();
+	typedef std::vector<PerceivedPlayer> PerceivedPlayers;
+	Perceptions(const Game& game,const Player& ply);
 
 	const Point& ballPosition() const;
 	const Vector& ballDirection() const;
 
-	Team::Players visibleTeamMate(const Player& player) const;
-	Team::Players visibleOpponent(const Player& player) const;
+	const PerceivedPlayers& visibleTeamMate() const;
+	const PerceivedPlayers& visibleOpponent() const;
+
+	const Point& playerPosition() const;
 
 private:
-	const Game* _game;
+	Ball initBall(const Game& game);
+	void initOpponentVect(const Game& game);
+	void initTeamMateVect(const Game& game);
+	
+	const Player& _player;
+	Ball _ball;
+	PerceivedPlayers _mate;
+	PerceivedPlayers _opp;
 };
 
 #endif

@@ -3,31 +3,50 @@
 #include "Game.h"
 #include "Player.h"
 
-Perceptions::Perceptions()
-	:	_game(NULL)
+Perceptions::Perceptions(const Game& game,const Player& ply)
+:_player(ply),_ball(initBall(game))
 {
-
+	initOpponentVect(game);
+	initTeamMateVect(game);
 }
 
 const Point& Perceptions::ballPosition() const
 {
-	return _game->ball().position();
+	return _ball.position();
 }
 
 const Vector& Perceptions::ballDirection() const
 {
-	return _game->ball().direction();
+	return _ball.direction();
 }
 
-Team::Players Perceptions::visibleTeamMate(const Player& player) const
+const Perceptions::PerceivedPlayers& Perceptions::visibleTeamMate() const
 {
-	const Team& team = _game->team(player.teamColor());
-	return Team::Players(team.playersBegin(), team.playersEnd());
+	return _mate;
 }
 
-Team::Players Perceptions::visibleOpponent(const Player& player) const
+const Perceptions::PerceivedPlayers& Perceptions::visibleOpponent() const
 {
-	const Team& team = _game->team((player.teamColor() == Team::Color_BLUE) ? Team::Color_RED : Team::Color_BLUE);
-	return Team::Players(team.playersBegin(), team.playersEnd());
+	return _opp;
+}
+
+const Point& Perceptions::playerPosition() const
+{
+	return _player.position();
+}
+
+Ball Perceptions::initBall(const Game& game)
+{
+	Point p = 
+	return Ball(game.side(_player.teamColor()) * game. 
+}
+
+void Perceptions::initOpponentVect(const Game& game)
+{
+
+}
+
+void Perceptions::initTeamMateVect(const Game& game)
+{
 
 }

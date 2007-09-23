@@ -1,8 +1,8 @@
 #include "Team.h"
 #include "Player.h"
 
-Team::Team(Color color)
-	:	_color(color)
+Team::Team(Color color, Side side)
+	:	_color(color), side(_side)
 {
 	if (_color == Color_RED)
 		_player.push_back(new Player(Point(50.0f,0), 6, _color));
@@ -13,6 +13,11 @@ Team::Team(Color color)
 Team::Color Team::color() const
 {
 	return _color;
+}
+
+Team::Side Team::side() const
+{
+	return _side;
 }
 
 void Team::run()

@@ -185,6 +185,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\DummyFactory.h"
+				>
+			</File>
+			<File
+				RelativePath=".\DummyPlayer.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Field.h"
 				>
 			</File>
@@ -201,6 +209,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\PerceivedPlayer.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Perceptions.h"
 				>
 			</File>
@@ -210,6 +222,10 @@
 			</File>
 			<File
 				RelativePath=".\PlayerAction.h"
+				>
+			</File>
+			<File
+				RelativePath=".\PlayerFactory.h"
 				>
 			</File>
 			<File
@@ -239,6 +255,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\DummyFactory.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DummyPlayer.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Field.cpp"
 				>
 			</File>
@@ -256,6 +280,10 @@
 			</File>
 			<File
 				RelativePath=".\main.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\PerceivedPlayer.cpp"
 				>
 			</File>
 			<File

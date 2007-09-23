@@ -2,7 +2,6 @@
 #define PLAYER_H
 
 #include "Point.h"
-#include "Team.h"
 
 class PlayerAction;
 class Perceptions;
@@ -10,23 +9,16 @@ class Perceptions;
 class Player
 {
 public:
-	Player(const Point& p, int n, Team::Color color);
+	Player(const Point& initialPosition, int number);
 
-	Point& position();
 	const Point& position() const;
-
-	float radius() const;
 	int number() const;
 
-	Team::Color teamColor() const;
-
-	virtual void run(const Perceptions& p, PlayerAction& playerAction);
+	virtual void run(const Perceptions& perceptions, PlayerAction& playerAction) = 0;
 
 private:
-	Point _p;
-	float _radius;
+	Point _initialPosition;
 	int _number;
-	Team::Color _teamColor;
 };
 
 #endif

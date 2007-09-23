@@ -96,6 +96,6 @@ void GLDraw::draw(const Game& game)
 {
 	draw(game.field());
 	draw(game.ball());
-	draw(game.team(Team::Color_BLUE));
-	draw(game.team(Team::Color_RED));
+	draw(game.teamRed());
+	draw(game.teamBlue());
 }

@@ -17,9 +17,16 @@ public:
 		Color_BLUE, Color_RED
 	};
 
-	explicit Team(Color color);
+	enum Side
+	{
+		Side_LEFT = 1, Side_RIGHT = -1
+	};
+
+
+	Team(Color color, Side side);
 
 	Color color() const;
+	Side side() const;
 
 	void run();
 
@@ -30,7 +37,8 @@ public:
 
 private:
 	Players _player;
-	Color _color;
+	Color  _color;
+	Side _side;
 };
 
 #endif
