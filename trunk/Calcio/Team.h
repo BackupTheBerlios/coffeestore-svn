@@ -17,7 +17,7 @@ public:
 		Color_BLUE, Color_RED
 	};
 
-	Team(Color color);
+	explicit Team(Color color);
 
 	Color color() const;
 

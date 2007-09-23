@@ -39,7 +39,7 @@ void display()
 	Field field;
 	draw.draw(field);
 
-	draw.draw(Point(45,0));
+	draw.draw(Ball(Point(45,0)));
 
 	t1.run();
 	t2.run();

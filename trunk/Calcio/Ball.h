@@ -6,7 +6,7 @@
 class Ball
 {
 public:
-	Ball(const Point& p);
+	explicit Ball(const Point& p);
 
 	Point& position();
 	const Point& position() const;
