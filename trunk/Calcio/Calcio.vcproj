@@ -213,6 +213,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Logger.h"
+				>
+			</File>
+			<File
 				RelativePath=".\PerceivedPlayer.h"
 				>
 			</File>
@@ -284,6 +288,10 @@
 			</File>
 			<File
 				RelativePath=".\Line.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Logger.cpp"
 				>
 			</File>
 			<File

@@ -1,9 +1,7 @@
 #include "DummyTeam.h"
 #include "Perceptions.h"
 #include "Team.h"
-
-#include <iostream>
-using namespace std;
+#include "Logger.h"
 
 DummyPlayer::DummyPlayer(const Point& initialPosition, int number)
 	:	AbstractPlayer(initialPosition, number)
@@ -14,18 +12,18 @@ DummyPlayer::DummyPlayer(const Point& initialPosition, int number)
 void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction)
 {
 	if (perceptions.ownTeamColor() == Team::Color_RED)
-		cout << "REDS " << number() << endl;
+		LOG_STD << "REDS " << number();
 	else
-		cout << "BLUES " << number() << endl;
+		LOG_STD << "BLUES " << number();
 
-	cout << "Side: " << perceptions.ownTeamSide() << endl;
-	cout << "Ball position: " << perceptions.ballPosition() << endl;
+	LOG_STD << "Side: " << perceptions.ownTeamSide();
+	LOG_STD << "Ball position: " << perceptions.ballPosition();
 
 	for (Perceptions::PerceivedPlayers::const_iterator it = perceptions.visibleOpponent().begin(); it != perceptions.visibleOpponent().end(); ++it)
-		cout << "Opponent " << it->number() << ": " << it->position() << endl;
+		LOG_STD << "Opponent " << it->number() << ": " << it->position();
 
 	for (Perceptions::PerceivedPlayers::const_iterator it = perceptions.visibleTeamMate().begin(); it != perceptions.visibleTeamMate().end(); ++it)
-		cout << "Mate " << it->number() << ": " << it->position() << endl;
+		LOG_STD << "Mate " << it->number() << ": " << it->position();
 }
 
 AbstractPlayer& DummyTeamFactory::createPlayer(int number)
