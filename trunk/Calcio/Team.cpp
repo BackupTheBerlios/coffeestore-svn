@@ -12,7 +12,7 @@ Team::Team(Color color, Side side)
 
 void Team::init(TeamFactory& teamFactory)
 {
-	for (int i = 1; i < 3; i++)
+	for (int i = 1; i < 2; i++)
 	{
 		Player* player = new Player(teamFactory.createPlayer(i));
 		player->position() = Convertion::toAbsoultePosition(player->abstractPlayer().position(), _side);

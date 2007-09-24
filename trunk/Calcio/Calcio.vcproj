@@ -311,6 +311,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\PlayerAction.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Point.cpp"
 				>
 			</File>

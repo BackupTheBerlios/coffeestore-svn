@@ -37,7 +37,7 @@ const Perceptions::PerceivedPlayers& Perceptions::visibleOpponent() const
 
 const Point& Perceptions::playerPosition() const
 {
-	return _player.position();
+	return Convertion::toRelativePosition(_player.position(), ownTeamSide());
 }
 
 Ball Perceptions::initBall(const Game& game)

@@ -2,6 +2,8 @@
 #include "Perceptions.h"
 #include "Team.h"
 #include "Logger.h"
+#include "PlayerAction.h"
+#include <cmath>
 
 DummyPlayer::DummyPlayer(const Point& initialPosition, int number)
 	:	AbstractPlayer(initialPosition, number)
@@ -24,6 +26,17 @@ void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction
 
 	for (Perceptions::PerceivedPlayers::const_iterator it = perceptions.visibleTeamMate().begin(); it != perceptions.visibleTeamMate().end(); ++it)
 		LOG_STD << "Mate " << it->number() << ": " << it->position();
+
+	if (perceptions.ownTeamColor() == Team::Color_BLUE)
+		return;
+
+	Point me = perceptions.playerPosition();
+	Point ball = perceptions.ballPosition();
+	Vector v(me, ball);
+	float len = sqrt(v.x()*v.x() + v.y()*v.y());
+	v = v * (1.0f/len);
+
+	playerAction.doRun(v);
 }
 
 AbstractPlayer& DummyTeamFactory::createPlayer(int number)

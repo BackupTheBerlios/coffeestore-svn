@@ -10,7 +10,7 @@ Point toAbsoultePosition(const Point& point, Team::Side side)
 
 Vector toAbsoultePosition(const Vector& vector, Team::Side side)
 {
-	return vector;
+	return vector * float(side);
 }
 
 Point toRelativePosition(const Point& point, Team::Side side)
@@ -20,7 +20,7 @@ Point toRelativePosition(const Point& point, Team::Side side)
 
 Vector toRelativePosition(const Vector& vector, Team::Side side)
 {
-	return vector;
+	return vector * float(side);
 }
 
 }

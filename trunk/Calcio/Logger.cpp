@@ -8,5 +8,5 @@ Logger::~Logger()
 
 bool Logger::loggingEnabled()
 {
-	return true;
+	return false;
 }
