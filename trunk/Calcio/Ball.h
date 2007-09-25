@@ -1,25 +1,23 @@
 #ifndef BALL_H
 #define BALL_H
 
-#include "Point.h"
-#include "Vector.h"
+#include "Circle.h"
 
 class Ball
 {
 public:
 	explicit Ball(const Point& p);
 
-	Point& position();
+	void move(const Vector& v);
+
 	const Point& position() const;
-	Vector& direction();
 	const Vector& direction() const;
 
 	float radius() const;
 
 private:
-	Point _p;
+	Circle _ball;
 	Vector _d;
-	float _radius;
 };
 
 #endif

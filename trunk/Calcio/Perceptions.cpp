@@ -35,7 +35,7 @@ const Perceptions::PerceivedPlayers& Perceptions::visibleOpponent() const
 	return _opp;
 }
 
-const Point& Perceptions::playerPosition() const
+Point Perceptions::playerPosition() const
 {
 	return Convertion::toRelativePosition(_player.position(), ownTeamSide());
 }

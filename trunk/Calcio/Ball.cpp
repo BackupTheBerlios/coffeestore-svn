@@ -1,24 +1,19 @@
 #include "Ball.h"
 
 Ball::Ball(const Point& p)
-	:	_p(p), _radius(1.5f)
+	:	_ball(p, 1.5f)
 {
 
 }
 
-Point& Ball::position()
+void Ball::move(const Vector& v)
 {
-	return _p;
+	_ball.move(v);
 }
 
 const Point& Ball::position() const
 {
-	return _p;
-}
-
-Vector& Ball::direction()
-{
-	return _d;
+	return _ball.center();
 }
 
 const Vector& Ball::direction() const
@@ -28,5 +23,5 @@ const Vector& Ball::direction() const
 
 float Ball::radius() const
 {
-	return _radius;
+	return _ball.radius();
 }

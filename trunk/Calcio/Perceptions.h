@@ -25,7 +25,7 @@ public:
 	const PerceivedPlayers& visibleTeamMate() const;
 	const PerceivedPlayers& visibleOpponent() const;
 
-	const Point& playerPosition() const;
+	Point playerPosition() const;
 
 	Team::Color ownTeamColor() const;
 	Team::Color opponentTeamColor() const;

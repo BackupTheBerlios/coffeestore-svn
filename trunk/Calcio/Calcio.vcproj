@@ -189,6 +189,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Circle.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Convertion.h"
 				>
 			</File>
@@ -264,6 +268,10 @@
 			</File>
 			<File
 				RelativePath=".\Ball.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Circle.cpp"
 				>
 			</File>
 			<File
