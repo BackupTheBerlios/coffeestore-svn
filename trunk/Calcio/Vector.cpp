@@ -66,6 +66,10 @@ Point operator + (const Point& p,const Vector& v)
 	return Point(v.x() + p.x(),v.y() + p.y());
 }
 
+Vector operator+( const Vector& v1,const Vector& v2 )
+{
+	return Vector(v1.x() + v2.x(),v1.y() + v2.y());
+}
 Vector operator - (const Point& p1, const Point& p2)
 {
 	return Vector(p1.x() - p2.x(), p1.y() - p2.y());
