@@ -1,6 +1,6 @@
 #include "Vector.h"
 #include <cmath>
-
+#include <ostream>
 
 Vector::Vector()
 {
@@ -35,15 +35,7 @@ float Vector::length() const
 
 Vector Vector::normalize() const
 {
-
-	return Vector(*this / length());
-}
-
-Vector& Vector::operator=( const Vector& v )
-{
-	_p.x() = v.x();
-	_p.y() = v.y();
-	return *this;
+	return *this / length();
 }
 
 Vector operator * (const Vector& v, float s)
@@ -81,3 +73,8 @@ Vector operator / (const Vector& v, float s)
 	return Vector(v.x() / s, v.y() / s);
 }
 
+std::ostream& operator << (std::ostream& os, const Vector& v)
+{
+	os << v._p;
+	return os;
+}

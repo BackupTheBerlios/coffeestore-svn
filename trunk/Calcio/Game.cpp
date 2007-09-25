@@ -29,6 +29,8 @@ void Game::updateGameStatus(Player& player, const PlayerAction& playerAction)
 {
 	player.position().x() += playerAction.run().x();
 	player.position().y() += playerAction.run().y();
+
+	_ball.move(playerAction.kick());
 }
 
 void Game::updateTeam(const Team& team)

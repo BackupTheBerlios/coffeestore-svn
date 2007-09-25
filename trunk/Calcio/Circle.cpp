@@ -22,8 +22,7 @@ void Circle::move(const Vector& v)
 	_center.y() += v.y();
 }
 
-bool Circle::contained(const Point& point) const
+bool Circle::contains(const Point& point) const
 {
-	Point diff = point - _center;
-	return false; //.abs() <= radius;
+	return (point - _center).length() <= radius();
 }

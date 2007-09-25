@@ -25,3 +25,8 @@ float Ball::radius() const
 {
 	return _ball.radius();
 }
+
+bool Ball::contains(const Point& p) const
+{
+	return _ball.contains(p);
+}

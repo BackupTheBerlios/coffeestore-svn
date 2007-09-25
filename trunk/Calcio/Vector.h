@@ -5,6 +5,7 @@
 
 class Vector
 {
+	friend std::ostream& operator << (std::ostream& os, const Vector& v);
 public:
 	Vector();
 	Vector(float x, float y);
@@ -15,8 +16,6 @@ public:
 
 	float length() const;
 	Vector normalize() const;
-
-	Vector& operator= (const Vector& v);
 
 private:
 	Point _p;
@@ -30,5 +29,6 @@ Point operator + (const Point& p,const Vector& v);
 Vector operator + (const Vector& v1,const Vector& v2);
 Vector operator / (const Vector& v, float s);
 
+std::ostream& operator << (std::ostream& os, const Vector& v);
 
 #endif

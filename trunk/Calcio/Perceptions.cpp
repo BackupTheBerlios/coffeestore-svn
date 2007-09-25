@@ -84,3 +84,8 @@ Team::Side Perceptions::opponentTeamSide() const
 {
 	return _opponentTeam.side();
 }
+
+bool Perceptions::isBallkickable() const
+{
+	return _ball.contains(playerPosition());
+}

@@ -8,12 +8,13 @@ class Ball
 public:
 	explicit Ball(const Point& p);
 
-	void move(const Vector& v);
-
 	const Point& position() const;
+	float radius() const;
+
 	const Vector& direction() const;
 
-	float radius() const;
+	void move(const Vector& v);
+	bool contains(const Point& p) const;
 
 private:
 	Circle _ball;

@@ -4,6 +4,7 @@
 #include "Logger.h"
 #include "PlayerAction.h"
 #include <cmath>
+#include <cstdlib>
 
 DummyPlayer::DummyPlayer(const Point& initialPosition, int number)
 	:	AbstractPlayer(initialPosition, number)
@@ -13,7 +14,7 @@ DummyPlayer::DummyPlayer(const Point& initialPosition, int number)
 
 void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction)
 {
-	if (perceptions.ownTeamColor() == Team::Color_RED)
+/*	if (perceptions.ownTeamColor() == Team::Color_RED)
 		LOG_STD << "REDS " << number();
 	else
 		LOG_STD << "BLUES " << number();
@@ -26,7 +27,7 @@ void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction
 
 	for (Perceptions::PerceivedPlayers::const_iterator it = perceptions.visibleTeamMate().begin(); it != perceptions.visibleTeamMate().end(); ++it)
 		LOG_STD << "Mate " << it->number() << ": " << it->position();
-
+*/
 	if (perceptions.ownTeamColor() == Team::Color_BLUE)
 		return;
 
@@ -34,7 +35,31 @@ void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction
 	Point ball = perceptions.ballPosition();
 	Vector v(me, ball);
 	Vector t = v.normalize();
-	playerAction.doRun(t);
+
+	if (me.x() > 100 || me.y() > 100)
+	{
+		playerAction.doKick(Vector(-5,-5));
+		playerAction.doRun(Vector(-3, -3));
+		return;
+	}
+
+	if (me.x() < 0 || me.y() < 0)
+	{
+		playerAction.doKick(Vector(5,5));
+		playerAction.doRun(Vector(3, 3));
+		return;
+	}
+
+	if (perceptions.isBallkickable())
+	{
+		LOG_STD << "kick " << t;
+		playerAction.doKick(t + Vector((float)rand(), (float)rand()).normalize());
+	}
+	else
+	{
+		LOG_STD << "move " << t;
+		playerAction.doRun(t);
+	}
 }
 
 AbstractPlayer& DummyTeamFactory::createPlayer(int number)

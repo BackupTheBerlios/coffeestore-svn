@@ -21,6 +21,7 @@ public:
 
 	const Point& ballPosition() const;
 	const Vector& ballDirection() const;
+	bool isBallkickable() const;
 
 	const PerceivedPlayers& visibleTeamMate() const;
 	const PerceivedPlayers& visibleOpponent() const;

@@ -14,7 +14,7 @@ public:
 
 	void move(const Vector& v);
 
-	bool contained(const Point& point) const;
+	bool contains(const Point& point) const;
 private:
 	float _radius;
 	Point _center;
