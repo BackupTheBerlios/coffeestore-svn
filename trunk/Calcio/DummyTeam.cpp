@@ -33,10 +33,8 @@ void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction
 	Point me = perceptions.playerPosition();
 	Point ball = perceptions.ballPosition();
 	Vector v(me, ball);
-	float len = sqrt(v.x()*v.x() + v.y()*v.y());
-	v = v * (1.0f/len);
-
-	playerAction.doRun(v);
+	Vector t = v.normalize();
+	playerAction.doRun(t);
 }
 
 AbstractPlayer& DummyTeamFactory::createPlayer(int number)
