@@ -36,15 +36,19 @@ void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction
 	Vector v(me, ball);
 	Vector t = v.normalize();
 
-	if (me.x() > 100 || me.y() > 100)
+	static float dir = 1;
+
+	if (me.x() > 100 && me.y() > 100)
 	{
+		dir = -1;
 		playerAction.doKick(Vector(-5,-5));
 		playerAction.doRun(Vector(-3, -3));
 		return;
 	}
 
-	if (me.x() < 0 || me.y() < 0)
+	if (me.x() < 0 && me.y() < 0)
 	{
+		dir = 1;
 		playerAction.doKick(Vector(5,5));
 		playerAction.doRun(Vector(3, 3));
 		return;
@@ -53,7 +57,9 @@ void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction
 	if (perceptions.isBallkickable())
 	{
 		LOG_STD << "kick " << t;
-		playerAction.doKick(t + Vector((float)rand(), (float)rand()).normalize());
+		playerAction.doKick(t + (Vector((float)rand(), (float)rand())*dir).normalize());
+		if (dir==-1)
+			playerAction.doRun(t);
 	}
 	else
 	{
