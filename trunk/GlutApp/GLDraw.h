@@ -10,7 +10,9 @@ class Team;
 class Field;
 class Game;
 
-class GLDraw
+#include "Draw.h"
+
+class GLDraw : public Draw
 {
 public:
 	void draw(const Ball& ball);
