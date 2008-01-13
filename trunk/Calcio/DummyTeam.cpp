@@ -68,10 +68,18 @@ void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction
 	}
 }
 
-AbstractPlayer& DummyTeamFactory::createPlayer(int number)
+std::vector<AbstractPlayer*> DummyTeamFactory::createPlayers()
 {
-	if (number == 1)	
-		return * new DummyPlayer(Point(23,41), number);
+	std::vector<AbstractPlayer*> pl;
+	if (_flag)
+		pl.push_back(new DummyPlayer(Point(23,41),1));
 	else
-		return * new DummyPlayer(Point(32,21), number);
+		pl.push_back(new DummyPlayer(Point(32,21),1));
+	return pl;
+}
+
+void DummyTeamFactory::destroyPlayers(std::vector<AbstractPlayer*>& plys)
+{
+	for(unsigned int ii = 0;ii < plys.size();++ii)
+		delete plys[ii];
 }

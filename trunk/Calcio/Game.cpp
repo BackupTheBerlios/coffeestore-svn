@@ -3,16 +3,9 @@
 #include "AbstractPlayer.h"
 #include "Player.h"
 
-Game::Game(TeamFactory& teamFactory)
-	:	_ball(Point(0.0f,0.0f)), _teamRed(Team::Color_RED, Team::Side_LEFT), _teamBlue(Team::Color_BLUE, Team::Side_RIGHT)
+Game::Game(AbstractPlayersFactory& factory1,AbstractPlayersFactory& factory2)
+	:	_ball(Point(0.0f,0.0f)), _teamRed(Team::Color_RED, Team::Side_LEFT,factory1), _teamBlue(Team::Color_BLUE, Team::Side_RIGHT,factory2)
 {
-	initTeams(teamFactory);
-}
-
-void Game::initTeams(TeamFactory& teamFactory)
-{
-	_teamRed.init(teamFactory);
-	_teamBlue.init(teamFactory);
 }
 
 const Field& Game::field() const

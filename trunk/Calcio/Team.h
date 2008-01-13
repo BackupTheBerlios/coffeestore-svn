@@ -4,7 +4,7 @@
 #include <vector>
 
 class Player;
-class TeamFactory;
+class AbstractPlayersFactory;
 
 class Team
 {
@@ -25,9 +25,8 @@ public:
 		Side_RIGHT = -1
 	};
 
-	Team(Color color, Side side);
+	Team(Color color, Side side,AbstractPlayersFactory& fact);
 
-	void init(TeamFactory& teamFactory);
 
 	Color color() const;
 	Side side() const;
@@ -37,7 +36,12 @@ public:
 	PlayersIterator playersBegin();
 	PlayersIterator playersEnd();
 
+	~Team();
+
 private:
+	void init(AbstractPlayersFactory& teamFactory);
+
+	AbstractPlayersFactory& _fact;
 	Players _players;
 	Color  _color;
 	Side _side;

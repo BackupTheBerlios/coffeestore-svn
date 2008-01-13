@@ -1,22 +1,34 @@
+#include <algorithm>
 #include "Team.h"
 #include "Player.h"
 #include "AbstractPlayer.h"
-#include "TeamFactory.h"
+#include "AbstractPlayersFactory.h"
 #include "Convertion.h"
 
-Team::Team(Color color, Side side)
-	:	_color(color), _side(side)
+class PlayerConverter
 {
+public:
 
+	AbstractPlayer* operator()(Player* pl)
+	{
+		return &pl->abstractPlayer();
+	}
+};
+
+Team::Team(Color color, Side side,AbstractPlayersFactory& fact)
+	:	_color(color), _side(side),_fact(fact)
+{
+	init(fact);
 }
 
-void Team::init(TeamFactory& teamFactory)
+void Team::init(AbstractPlayersFactory& teamFactory)
 {
-	for (int i = 1; i < 2; i++)
+	std::vector<AbstractPlayer*> pl = teamFactory.createPlayers();
+	for(std::vector<AbstractPlayer*>::iterator it = pl.begin();it != pl.end();++it)
 	{
-		Player* player = new Player(teamFactory.createPlayer(i));
-		player->position() = Convertion::toAbsoultePosition(player->abstractPlayer().position(), _side);
-		_players.push_back(player);
+		Player* tmp = new Player(*(*it));
+		tmp->position() = Convertion::toAbsoultePosition((*it)->position(),_side);
+ 		_players.push_back(tmp);
 	}
 }
 
@@ -48,4 +60,14 @@ Team::PlayersIterator Team::playersBegin()
 Team::PlayersIterator Team::playersEnd()
 {
 	return _players.end();
+}
+
+Team::~Team()
+{
+	std::vector<AbstractPlayer*> vct(_players.size());
+	std::transform(playersBegin(),playersEnd(),vct.begin(),PlayerConverter());
+	_fact.destroyPlayers(vct);
+	
+	for(unsigned int ii = 0;ii < _players.size();++ii)
+		delete _players[ii];
 }

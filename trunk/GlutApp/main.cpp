@@ -6,8 +6,9 @@
 
 #include <cassert>
 
-DummyTeamFactory factory;
-Game game(factory);
+DummyTeamFactory tm1(true);
+DummyTeamFactory tm2(false);
+Game game(tm1,tm2);
 GLDraw draw;
 
 void Init(void)

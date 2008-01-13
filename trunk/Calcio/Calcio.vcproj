@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8,00"
+	Version="8.00"
 	Name="Calcio"
 	ProjectGUID="{A1B2B5B8-B266-4DE9-984A-3452F839659C}"
 	RootNamespace="Calcio"
@@ -225,6 +225,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\AbstractPlayersFactory.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Ball.h"
 				>
 			</File>
@@ -286,10 +290,6 @@
 			</File>
 			<File
 				RelativePath=".\Team.h"
-				>
-			</File>
-			<File
-				RelativePath=".\TeamFactory.h"
 				>
 			</File>
 			<File
