@@ -1,0 +1,410 @@
+Piemonte - Camera 1
+Partito Democratico
+1 Fassino Piero
+2 Boccuzzi Antonio
+3 Rossomando Anna
+4 Merlo Giorgio
+5 Malgaro Marco
+6 Vernetti Gianni
+7 Esposito Stefano
+8 Portas Giacomo
+9 Lucà Mimmo
+10 Ciluffo Francesca
+11 Benvenuto Giorgio
+12 Benedino Andrea
+13 Gentile Lorenzo
+14 Foietta Paolo
+15 Caglio Roberta
+16 Vigna Deanna
+17 D’Ottavio Umberto
+18 Ferragatta Bruno
+19 Guarino Emanuela
+20 Di Maio Eugenia
+21 Gallo Francesco
+22 Quarta Rita
+23 Tubere Rosalba
+24 Bartolomei Claudia
+
+Lista dei Grilli parlanti
+1 Rabellino Renzo
+2 Tibaldi Beniamino
+3 Di Francesco Dario
+4 Franchi Giuseppe
+5 Talleri Massimo
+6 Di Silvestro Marco
+7 Boaretti Francesca
+8 Bono Marco
+9 Coppola Domenico
+10 Monteleone Marcello
+11 Saunovo Polacco Luigina
+12 Saturnino Vincenzo
+13 Franchi Stefania
+14 Ferro Maurizio
+15 Romano Gianluca
+16 Bevilacqua Giuseppina
+17 Nespoli Lorenzo
+18 Pronzato Maria Luciana
+19 Cerutti Roberto
+20 Carbone Antonino
+21 Marenco Maria Carla
+22 Chiarle Marilena
+23 Mameli Maria Rita
+24 Tsvelikhovskaya Marina
+
+Sinistra critica
+1 D’Angeli Flavia
+2 Avanzi Ennio Saverio
+3 Tangolo Giovanna
+4 Loiacono Pasquale
+5 Argentino Flavia
+6 Ngandu Mukendi
+7 Alessandria Adriano Lorenzo
+8 Angelini Fausto
+9 Arruzza Cinzia
+10 Bizzarini Federica
+11 Boni Edoardo
+12 Calcagno Oliviero
+13 Coccia Elisa
+14 Cordiano Giorgio
+15 Elia Ezio
+16 Iacono Giovanni
+17 Malabarba Luigi
+18 Montella Tatiana
+19 Sanfilippo Carmen
+20 Siani Chiara
+21 Siracusa Liborio
+22 Stramazzo Marzia
+23 Treccarichi Franca
+24 Visintin Antonella
+
+Unione democratica per i consumatori
+1 De Vita Bruno
+2 Del Grosso Remigio
+3 Guarini Maria Rosa
+4 Badini David
+5 Bertone Giacomo
+6 Bertoni Giovanni Sergio
+7 Bultrini Valentina
+8 Cincotti Fiorenzo
+9 Costantini Gabriella
+10 Daprà Roberto
+11 Di Pietro Silvio
+12 Lauretti Antonello
+13 Morgese Emilio
+14 Pallante Vincenzo
+15 Patricolo Daniela
+16 Sabucco Carlo
+17 Tarica Massimiliano
+18 Valente Sara
+19 Zago Stefano
+20 Zamperini Giovanni
+21 Zattella Ilaria
+
+
+Partito Comunista dei lavoratori (Ferrando)
+1 Debetto Daniele
+2 Bardella Luigi
+3 Butera Barbara
+4 Casale Pierpaolo
+5 Chiarelli Giovanni
+6 Cotti Cometti Ferruccio
+7 De Luca Ferdinando
+8 Faiola Graziano
+9 Fresa Vincenzo
+10 Mancin Roberto
+11 Mastrocinque Ercole
+12 Mollura Caterina
+13 Panetta Nicola
+14 Scacchi Luca
+15 Scapin Loris
+16 Turco Alessandro
+
+
+Per il bene comune(Stefano Montanari)
+1 Arancio Elvio
+2 Ghignoli Ivo
+3 Cardella Tiziana
+4 Peroglia Oscar
+5 Balestra Paola
+6 Brancucci Rocco
+7 Berta Massimiliano
+8 Gabriele Gianluca
+9 Manigrasso Antonio
+10 Mammola Maria Teresa
+11 Zollo Bianca
+12 Cardone Giorgio
+13 Brina Daniela
+14 Albano Giovanni
+
+
+Aborto no grazie (Giuliano Ferrara)
+1 De Lorenzo Natale
+2 Marozzi Bonzi Paola Chiara
+3 Schopflin Lorenzo
+4 Tarzi Olimpia
+5 Ciangherotti Eraldo
+6 Malfatti Miriam
+7 Cianfrocca Raffaella
+8 Agnioli Francesco
+9 Occhini Ilaria
+10 Perini Marco
+
+
+Movimento Diversamente Abili (Sergio Riboldi)
+1 Gabrielli Alessandra
+2 Riboldi Sergio
+3 Ottaviani Angelo Claudio
+4 Colombelli William Ambrogio
+5 Rossetti Walter
+6 Sautto Maurizio
+7 Todeschini Patrizio
+8 Panunzio Saverio
+9 Aldovieri Umberto
+10 Ostal Cinzia
+11 Muntean Anca Mihaela
+
+
+
+Movimento politico pensiero e azione (Antonio Piarulli)
+1 Fulco Antonio
+2 Enrico Alessandro
+3 Strambi Giorgio
+4 Moschetti Gaetano
+5 Prestia Gaetano
+6 Anardu Alessandro
+7 Piarulli Mario
+8 Savastano Emilio
+9 Cossari Cosimo Damiano
+10 Meloni Andrea
+11 Rondina Davide
+
+
+
+Forza nuova (Roberto Fiore)
+1 Saija Stefano Rosario
+2 Spadafora Angela
+3 Ramini Valerio
+4 Michelini Yari
+5 Lotti Gian Mario Paolo
+6 Romanelli Emiliano
+7 Ruello Davide
+8 Grottoli Luigi
+9 Marchese Paolo
+10 Zavoretti Luca
+11 Montanaro Alessandro Davide
+12 Prudente Paolo
+13 Zanella Daniela
+14 Perlo Giuseppe
+15 Vitali Giorgio
+16 Calvo Anna
+17 Mirabella Giuseppe
+18 D’Aprano Marco
+
+Partito Liberale Italiano
+1 De Luca Stefano
+2 Dinucci Riccardo Enrico
+3 Varotto Maria Rosa
+4 Reali Andrea
+5 Denti Alessandro
+6 Guazzini Gherardo
+7 Mantega Bernadetta
+8 Bonardi Marco
+9 Maffioli Stefania
+10 Pratellesi Sergio
+11 Maestri Immacolata
+12 Milanesi Sandro
+13 Morandi Dana
+14 Spighi Zumo
+15 Fortunato Michele
+16 Benagli Lucio
+17 Gibellieri Enrico
+18 Golino Giuseppe
+19 Concetti Mauro
+20 Corradi Lorendana
+21 Gandellini Mauro
+22 Caniglia Angelo
+23 Grandi Stefano
+24 Lettina Daniele
+
+La Destra
+1 Santanchè Daniela
+2 Salerno Roberto
+3 Cignetti Valerio
+4 Lonero Giuseppe
+5 Marra Rosario
+6 Robella Massimo
+7 Battaglia Antonio
+8 Cecca Enzo Mario
+9 Comba Gabriele
+10 Scaglione Mario Marcello
+11 Ballauri Alessandro
+12 Paglia Roberto
+13 Rigon Roberto
+14 Condemi Maurizio
+15 Vaschetto Silvia
+16 Conti Giovanni Giulio
+17 Marsala Jonathan
+18 Panzi Roberto
+19 Poncini Aldo
+20 Castino Piermauro
+21 Vinci Emanuele
+22 Cancedda Enzo Andrea
+23 Gemelli Stefania
+24 Bergoglio Massimo
+
+Unione di Centro
+1 Casini Pier Ferdinando
+2 Vietti Michele
+3 Scanderebech Deodato
+4 Goffi Alberto
+5 Olivero Roberto
+6 Benetto Alida
+7 Devietti Loredana
+8 Caudera Crispino
+9 Striglia Massimo
+10 Zanelli Annamaria
+11 Calleri Di Sala Guido
+12 Geninatti Luca
+13 Abruzzese Diamante
+14 Delmirani Enrico
+15 Gavazza Gianluca
+16 Genisio Ezio
+17 Maero Luigi
+18 De Cilladi Paolo
+19 De Carli Antonio
+20 Nuzzo Luigi
+21 Trucco Sergio
+22 Sciarrone Antonio
+23 Romeo Enzo
+24 Croce Gualtiero
+
+Il popolo delle liberà
+1 Berlusconi Silvio
+2 Fini Gianfranco
+3 Crosetto Guido
+4 Boniver Margherita
+5 Leo Maurizio
+6 Napoli Osvaldo
+7 Siliquini Maria Grazia
+8 Della Vedova Benedetto
+9 Repetti Manuela
+10 Ghiglia Agostino
+11 Pianetta Enrico
+12 Mastrullo Angiolino
+13 Ferrero Caterina Anna Rosa
+14 Parisi Salvatore
+15 Bonino Barbara
+16 Cantore Daniele
+17 Vercellini Irene
+18 Giacometto Carluccio
+19 Savini Manuela
+20 Ercole Ezio
+21 Lupi Alessandro
+22 Puglisi Ettore
+23 Poggio Sartori,Graziella Elena
+24 Gabri Giuliana
+
+
+Lega Nord
+1 Bossi Umberto
+2 Cota Roberto
+3 Allasia Stefano
+4 Togni Renato Walter
+5 Maccanti Elena
+6 Cavallotto Daniele
+7 Giglio Vigna Alessandro
+8 Benna Dina Maria
+9 Pastore Denise
+10 Morra Domenico
+11 Brescia Mario
+12 Camoletto Monica
+13 Lucco Diego
+14 Corda Giovanni
+15 Bettiol Annamaria
+16 Pallieri Vittorio
+17 Rosso Flavio
+18 Pitton Davide
+19 Miletto Bernardo
+20 Boggio Merlo Augusto
+21 Spadaro Maria Grazia Vittoria
+22 Bertone Giacomina
+23 Porta Amalia
+24 Gazzano Flavia Valeria
+
+Italia del valori
+1 Di Pietro Antonio
+2 Giulietti Giuseppe
+3 Porcino Gaetano
+4 Boiero Elena
+5 Turconi Massimo
+6 D’Acri Antonio Marco
+7 Di Croce Avemino
+8 De Filippi Albino
+9 Ferretti Michela
+10 Barbieri Roberto
+11 Russo Annamaria
+12 Pagani Enzo
+13 Ferrero Bruna
+14 Alì Paola
+15 Bonomo Michela
+16 Picuccio Rocco
+17 Pregliasco Sara Anna
+18 Francioso Anita Leyla
+19 Amolaro Angelo
+20 Gaido Marco
+21 Barbalucca Fabiana
+22 Capezzera Anna Stefania
+23 Chiusano Gian Carlo
+24 Col Luca
+
+Partito socialista
+1 Borselli Enrico
+2 Nigra Alberto
+3 Buemi Enrico
+4 Ricca Luigi Sergio
+5 Alba Luca
+6 Alberti Sergio
+7 Anania Giovanni
+8 Bergero Ausilio
+9 Blanc Davide
+10 Caria Massimo
+11 Castagno Diego
+12 Ciaramella Pierluigi
+13 Ciavarra Antonio Domenico
+14 Defino Angelo
+15 Favatà Gabriella
+16 Ferrara Rosario
+17 Frascella Davide
+18 Grasso Carmine
+19 Guarneri Domenico
+20 Iuliano Carmine
+21 Minniti Domenica Giuseppa
+22 Paredes Diaz Raul Antonio
+23 Provenzano Giovanni
+24 Sansone Vincenzo
+
+Sinistra Arcobaleno
+1 Argentino Ciro
+2 Francescato Grazia
+3 Alfonzi Daniela
+4 Soggia Antonio
+5 Nigro Antonio
+6 Marabese Nadia
+7 Battista Annamaria
+8 Corsato Mario
+9 Demasi Gianna
+10 Petrini Davide
+11 Crusca Maria Giustina
+12 Rizzi Valentina
+13 Serra Elisabetta
+14 Franza Cinzia
+15 D’Elia Tommaso
+16 Riccardi Omar
+17 Canavesio Elio
+18 Zucchetti Massimo
+19 Niescier Dorota Grudziadz
+20 Sheikh Omar
+21 Santomauro Michele
+22 Zio Maria Concetta
+23 Salonia Maria
+24 Pellegrinelli Giorgio
