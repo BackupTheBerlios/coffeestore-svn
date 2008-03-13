@@ -49,12 +49,12 @@ public class TestPartito
             // Create a reader on the HTML content
             URL url = new URI(uriStr).toURL();
             URLConnection conn = url.openConnection();
-            Reader rd = new InputStreamReader(conn.getInputStream());
     
             // Parse the HTML
             HTMLEditorKit kit = new HTMLEditorKit();
             HTMLDocument doc = (HTMLDocument)kit.createDefaultDocument();
-            kit.read(rd, doc, 0);
+            doc.putProperty("IgnoreCharsetDirective", new Boolean(true));
+            kit.read(conn.getInputStream(), doc, 0);
     
             // Find all the A elements in the HTML document
             HTMLDocument.Iterator it = doc.getIterator(HTML.Tag.A);
