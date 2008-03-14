@@ -16,4 +16,9 @@ public class Lista
 	{
 		_parlamentari.add(parlamentare);
 	}
+
+	public boolean isEmpty()
+	{
+		return _parlamentari.isEmpty();
+	}
 }
