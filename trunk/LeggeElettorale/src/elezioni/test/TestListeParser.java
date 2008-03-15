@@ -17,7 +17,7 @@ public class TestListeParser
 	{
 		ListeParser parser = new ListeParser();
 		
-		File directory = new File("varie\\listecandidati\\src");
+		File directory = new File("varie/listecandidati/src");
 		for (File file : directory.listFiles())
 		{
 			String fileName = file.getName();
