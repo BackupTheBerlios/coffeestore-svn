@@ -9,11 +9,10 @@ import elezioni.Parlamentare;
 import elezioni.Partito;
 import elezioni.Premier;
 
-import java.io.*;
-import java.net.*;
 
-import javax.swing.text.html.*;
-import javax.swing.text.BadLocationException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.ArrayList;
 
 public class TestPartito 
 {
@@ -42,57 +41,31 @@ public class TestPartito
 		
 		assertEquals(pd.getListeCamera(umbria1), listaUmbria1Pd);
 	}
-	
-    public static void getLinks(String uriStr) throws URISyntaxException, IOException, BadLocationException 
-    {
-   
-            // Create a reader on the HTML content
-            URL url = new URI(uriStr).toURL();
-            URLConnection conn = url.openConnection();
-    
-            // Parse the HTML
-            HTMLEditorKit kit = new HTMLEditorKit();
-            HTMLDocument doc = (HTMLDocument)kit.createDefaultDocument();
-            doc.putProperty("IgnoreCharsetDirective", new Boolean(true));
-            kit.read(conn.getInputStream(), doc, 0);
-    
-            // Find all the A elements in the HTML document
-            HTMLDocument.Iterator it = doc.getIterator(HTML.Tag.A);
-            while (it.isValid()) {
-                System.out.println(it.toString());
-            	//SimpleAttributeSet s = (SimpleAttributeSet)it.getAttributes();
-//    
-//                String link = (String)s.getAttribute(HTML.Attribute.HREF);
-//                if (link != null) {
-//                    // Add the link to the result list
-//                    result.add(link);
-//                }
-//                it.next();
-           }
 
-    }
 	
-	public static BufferedReader read(String url) throws Exception
+	public static ArrayList<String> scanSingleLine(String line)
 	{
-		return new BufferedReader(
-			new InputStreamReader(
-				new URL(url).openStream()));
+//		String line = "GIPIEFFE_SPA;14-03-2008;PD:33.3;IDV:2.3;SA:6.8;PDL:40.6;LEGA:5.3;MPA:0.1;UDC:7.4;DX:1.9;SOC:0.9;";
+		Pattern patternInfo = Pattern.compile("(\\w+);(\\d+)-(\\d+)-(\\d+);(.*)");
+		Pattern patternVoti = Pattern.compile("(\\w+):(.*?);");
+		Matcher matcher = patternInfo.matcher(line);
+		ArrayList<String> list = new ArrayList<String>();
+		if (matcher.matches())
+		{
+			
+			list.add(matcher.group(1));
+			list.add(matcher.group(2));
+			list.add(matcher.group(3));
+			list.add(matcher.group(4));
+			Matcher matchVoti = patternVoti.matcher(matcher.group(5));
+			while (matchVoti.find())
+			{
+				list.add(matchVoti.group(1));
+				list.add(matchVoti.group(2));
+			}
+		}
+		return list;
 	}
 	
-	@Test
-	public void testConnection() throws Exception
-	{
-		//BufferedReader reader = read("http://www.tocqueville.it/politiche2008/default.htm");
-		getLinks("http://www.tocqueville.it/politiche2008/default.htm");
-//		String line = reader.readLine();
-//		StringBuffer stringdocument = new StringBuffer(line);
-//		while (line != null) 
-//		{
-//			line = reader.readLine();
-//			stringdocument.append("\n").append(line);
-//		}
-		
-		
-	}
+//	public static 
 }
-
