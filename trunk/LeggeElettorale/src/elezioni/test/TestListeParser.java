@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import elezioni.Lista;
 import elezioni.ListeParser;
+import elezioni.PartitoEnum;
 
 public class TestListeParser
 {
@@ -20,20 +21,17 @@ public class TestListeParser
 		for (File file : directory.listFiles())
 		{
 			String fileName = file.getName();
-			if (!fileName.equals(".svn") && !fileName.equals("trentino_senato.txt") && !fileName.equals("valle_camera.txt") && !fileName.equals("valle_senato.txt"))
+			if (!fileName.equals(".svn"))
 			{
-				System.out.println(file.getName());
 				parseRegione(parser, file.getAbsolutePath());
 			}
 		}
-		
-		//parser.parseRegione("varie\\listecandidati\\src\\calabria_camera.txt");
 	}
 
 	private void parseRegione(ListeParser parser, String regione) throws IOException
 	{
-		Map<String, Lista> liste = parser.parseRegione(regione);
-		for (String partito : liste.keySet())
+		Map<PartitoEnum, Lista> liste = parser.parseCollegio(regione);
+		for (PartitoEnum partito : liste.keySet())
 		{
 			Lista lista = liste.get(partito);
 		}

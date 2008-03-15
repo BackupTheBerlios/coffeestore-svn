@@ -1,57 +1,54 @@
-Collegio di Bressanone
-Helga Thaler Ausserhofer - Svp
-Robert Hochgruber - Sinistra Arcobaleno
-Alberto Ghedina - Pd
-Giuseppe Bellomo - Pdl
-Johann Lenz - Union
-Lucio Perugini - La Destra - Fiamma Tricolore
-Walter Blaas - Freiheitlichen
-Fabrizio Albertin - Partito socialista
-Ivan Bertinotti - Udc
-Democratici di sinistra
-
-Collegio di Merano
-Manfred Pinzger - Svp
-Sigmund Kripp - Sinistra Arcobaleno
-Karl Trojer - Pd
-Patrizia Ancilla Orio - Pdl
-Christine Taraboi - Union
-Oswald Angerer - Freiheitlichen
-Franco Maria Biasi - La Destra - Fiamma Tricolore
-Carmen Chiocchetti - Partito Socialista
-Alessandro Folchini - Udc
-Democratici di sinistra
-
-Collegio di Bolzano-Bassa Atesina
-Oskar Peterlini - Svp Insieme per le autonomie
-Sandro Angelucci - Sinistra Arcobaleno
-Maurizio Vezzali - Pdl
-Luigi Schiatti - La Destra-Fiamma Tricolore
-Arno Mall - Freiheitlichen
-Sandro Repetto - Udc
-Franz Gasser - Union
-Democratici di sinistra
-
-Collegio di Rovereto
-Claudio Molinari - Svp Insieme per le autonomie
-Cristano de Eccher - Pdl
-Gianfranco Valduga - Sinistra Acrobaleno
-Giuseppe Stefenelli - Udc
-Mario Bortot - La Destra
-Democratici di sinistra
-
-Collegio della Valsugana
-Sergio Muraro - Svp Insieme per le autonomie
-Giacomo Santini - Pdl
-Luigi Casanova - Sinistra Arcobaleno
-Cristina Trentini - Udc
-Vittorio Bortolini - La Destra
-Democratici di sinistra
-
-Collegio di Trento
-Mauro Betta - Svp Insieme per le autonomie
-Sergio Divina - Pdl
-Agostino Catalano - Sinistra Arcobaleno
-Giuseppe Frattin - Udc
-Giacomo Pellini - La Destra
-Democratici di sinistra
+Sinistra Acrobaleno
+1) Gianfranco Valduga
+Freiheitlichen
+1) Walter Blaas
+2) Oswald Angerer
+3) Arno Mall
+Union
+1) Johann Lenz
+2) Christine Taraboi
+3) Franz Gasser
+Fiamma Tricolore
+1) Lucio Perugini - La Destra
+2) Franco Maria Biasi - La Destra
+Partito Socialista
+1) Carmen Chiocchetti
+La Destra-Fiamma Tricolore
+1) Luigi Schiatti
+Udc
+1) Ivan Bertinotti
+2) Alessandro Folchini
+3) Sandro Repetto
+4) Giuseppe Stefenelli
+5) Cristina Trentini
+6) Giuseppe Frattin
+Pdl
+1) Giuseppe Bellomo
+2) Patrizia Ancilla Orio
+3) Maurizio Vezzali
+4) Cristano de Eccher
+5) Giacomo Santini
+6) Sergio Divina
+La Destra
+1) Mario Bortot
+2) Vittorio Bortolini
+3) Giacomo Pellini
+Pd
+1) Alberto Ghedina
+2) Karl Trojer
+Partito socialista
+1) Fabrizio Albertin
+Svp Insieme per le autonomie
+1) Oskar Peterlini
+2) Claudio Molinari
+3) Sergio Muraro
+4) Mauro Betta
+Sinistra Arcobaleno
+1) Robert Hochgruber
+2) Sigmund Kripp
+3) Sandro Angelucci
+4) Luigi Casanova
+5) Agostino Catalano
+Svp
+1) Helga Thaler Ausserhofer
+2) Manfred Pinzger

@@ -11,19 +11,47 @@ import java.util.regex.Pattern;
 public class ListeParser
 {
 	private Pattern _patternCandidato;
-	private Pattern _patternCandidatoBis;
+	private Map<PartitoEnum, String[]> _mapping;
 	
 	public ListeParser()
 	{
-		_patternCandidato = Pattern.compile("\\s*\\d+\\)?\\s*(.*)\\s+(.*)");
-		_patternCandidatoBis = Pattern.compile("\\s*\\d+\\.?\\s*(.*)\\s+(.*)");
+		_patternCandidato = Pattern.compile("\\s*\\d+[).]?\\s*(.*)\\s+(.*)");
+		_mapping = createMapping();
 	}
 
-	public Map<String, Lista> parseRegione(String fileName) throws IOException
+	private Map<PartitoEnum, String[]> createMapping()
 	{
-		Map<String, Lista> liste = new HashMap<String, Lista>();
-		BufferedReader reader = new BufferedReader(new FileReader(fileName));
+		String[] socStrings = { "partito socialista", "ps" };
+		String[] dxStrings = { "destra" };
+		String[] legaStrings = { "lega nord" };
+		String[] udcStrings = { "udc", "democratici cristiani" };
+		String[] itvStrings = { "italia dei", "l\'italia dei", "idv", "italia del valori"};
+		String[] saStrings = { "arcobaleno", "acrobaleno" };
+		String[] pdlStrings = { "pdl", "partito delle lib", "partito della lib", "popolo dell", "il popolo"};
+		String[] pdStrings = { "pd", "partito democratico" };
+		String[] mpaStrings = { "mpa", "movimento per l", "autonomia alleanza per il sud" };
+		String[] naStrings = {};
+
+		HashMap<PartitoEnum, String[]> mapping = new HashMap<PartitoEnum, String[]>();
+		mapping.put(PartitoEnum.SOC, socStrings);
+		mapping.put(PartitoEnum.DX, dxStrings);
+		mapping.put(PartitoEnum.LN, legaStrings);
+		mapping.put(PartitoEnum.UDC, udcStrings);
+		mapping.put(PartitoEnum.ITV, itvStrings);
+		mapping.put(PartitoEnum.PDL, pdlStrings);
+		mapping.put(PartitoEnum.PD, pdStrings);
+		mapping.put(PartitoEnum.MPA, mpaStrings);
+		mapping.put(PartitoEnum.SA, saStrings);
+		mapping.put(PartitoEnum.NA, naStrings);
 		
+		return mapping;
+	}
+
+	public Map<PartitoEnum, Lista> parseCollegio(String fileName) throws IOException
+	{
+		Map<PartitoEnum, Lista> liste = new HashMap<PartitoEnum, Lista>();
+		BufferedReader reader = new BufferedReader(new FileReader(fileName));
+
 		String line = null;
 		Lista lista = null;
 		while ((line = reader.readLine()) != null)
@@ -31,38 +59,47 @@ public class ListeParser
 			if (!line.isEmpty())
 			{
 				Matcher matcher = _patternCandidato.matcher(line);
-				Matcher matcherBis = _patternCandidatoBis.matcher(line);
-				boolean matched = matcher.matches() || matcherBis.matches(); 
-				if (matched)
+				if (matcher.matches())
 				{
-					if (matcherBis.matches())
-						matcher = matcherBis;
-
-					String nome = matcher.group(1);
-					String cognome = matcher.group(2);
+					String nome = matcher.group(1).trim();
+					String cognome = matcher.group(2).trim();
 					
 					if (lista == null)
-					{
-						System.out.println(line);
-						throw new WrongListaFileFormat("Nome partito non trovato " + fileName);
-					}
+						throw new WrongListaFileFormat("Nome partito non trovato", fileName, line);
 					
 					lista.add(new Parlamentare(nome, cognome));
 				}
 				else
 				{
 					if (lista != null && lista.isEmpty())
-					{
-						System.out.println(line);
-						throw new WrongListaFileFormat("Lista vuota " + fileName);
-					}
+						throw new WrongListaFileFormat("Lista vuota", fileName, line);
 					
 					lista = new Lista();
-					liste.put(line, lista);
+					PartitoEnum partito = getPartitoEnum(line);
+					if (partito != PartitoEnum.NA)
+						liste.put(partito, lista);
 				}
 			}
 		}
 		return liste;
 	}
 
+	private PartitoEnum getPartitoEnum(String line)
+	{
+		for (PartitoEnum partito : PartitoEnum.values())
+		{
+			PartitoEnum partitoFound = getPartitoEnum(partito, _mapping.get(partito), line);
+			if (partitoFound != null)
+				return partitoFound;
+		}
+		return PartitoEnum.NA;
+	}
+
+	private PartitoEnum getPartitoEnum(PartitoEnum partito, String[] strings, String line)
+	{
+		String lowerLine = line.toLowerCase();
+		for (String str : strings)
+			if (lowerLine.contains(str)) return partito;
+		return null;
+	}
 }
