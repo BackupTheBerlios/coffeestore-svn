@@ -21,4 +21,9 @@ public class Lista
 	{
 		return _parlamentari.isEmpty();
 	}
+	
+	public Collection<Parlamentare> getCandidati()
+	{
+		return _parlamentari;
+	}
 }

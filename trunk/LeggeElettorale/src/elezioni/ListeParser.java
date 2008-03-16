@@ -1,5 +1,6 @@
 package elezioni;
 
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -45,7 +46,7 @@ public class ListeParser
 		return mapping;
 	}
 
-	public Map<PartitoEnum, Lista> parseCollegio(String fileName) throws WrongListaFileFormat
+	public Map<PartitoEnum, Lista> parseListeCircoscrizione(String fileName) throws FileNotFoundException, WrongListaFileFormat 
 	{
 		Map<PartitoEnum, Lista> liste = new HashMap<PartitoEnum, Lista>();
 

@@ -17,10 +17,10 @@ public class TestPartito
 	{
 		Premier veltroni = new Premier("Walter", "Veltroni");
 		Partito pd = new Partito("Partito Democratico", veltroni);
-		Circoscrizione umbria1 = new Circoscrizione("Umbria1");
-		Circoscrizione marche1 = new Circoscrizione("Marche1");
-		Circoscrizione toscana1 = new Circoscrizione("Toscana1");
-		Circoscrizione toscana2 = new Circoscrizione("Toscana2");
+		Circoscrizione umbria1 = new Circoscrizione("Umbria1", 0);
+		Circoscrizione marche1 = new Circoscrizione("Marche1", 0);
+		Circoscrizione toscana1 = new Circoscrizione("Toscana1", 0);
+		Circoscrizione toscana2 = new Circoscrizione("Toscana2", 0);
 		Lista listaUmbria1Pd = new Lista();
 		listaUmbria1Pd.add(new Parlamentare("Fabio", "Lombardelli"));
 		Lista listaMarche1Pd = new Lista();

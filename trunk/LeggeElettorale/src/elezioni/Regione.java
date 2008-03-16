@@ -1,18 +1,17 @@
 package elezioni;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Regione
 {
 	private String _nome;
-	private int _numParlamentari;
-	private Collection<Circoscrizione> _circoscrizione;
+	private Collection<Circoscrizione> _circoscrizioni;
 	
-	public Regione(String nome, int parlamentari, Collection<Circoscrizione> circscrizioni)
+	public Regione(String nome)
 	{
 		_nome = nome;
-		_numParlamentari = parlamentari;
-		_circoscrizione = circscrizioni;
+		_circoscrizioni = new ArrayList<Circoscrizione>();
 	}
 	
 	public String getNome()
@@ -20,13 +19,13 @@ public class Regione
 		return _nome;
 	}
 	
-	public int getNumParlamentari()
+	public Collection<Circoscrizione> getCircscrizioni()
 	{
-		return _numParlamentari;
+		return _circoscrizioni;
 	}
 	
-	public Collection<Circoscrizione> getCircscrizione()
+	public void addCircoscrizione(Circoscrizione circoscrizione)
 	{
-		return _circoscrizione;
+		_circoscrizioni.add(circoscrizione);
 	}
 }

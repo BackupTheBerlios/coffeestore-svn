@@ -1,12 +1,15 @@
 package elezioni.utils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class FileReader implements Iterable<String>
 {
 	private String _fileName;
 
 	public class FileReaderIterator implements java.util.Iterator<String>
 	{
-		java.io.BufferedReader _reader;
+		private java.io.BufferedReader _reader;
 		private String _line;
 
 		public FileReaderIterator(String fileName)
@@ -56,9 +59,17 @@ public class FileReader implements Iterable<String>
 		}
 	}
 	
-	public FileReader(String fileName)
+	public FileReader(String fileName) throws FileNotFoundException
 	{
 		_fileName = fileName;
+		tryOpen();
+	}
+
+	private void tryOpen() throws FileNotFoundException
+	{
+		File file = new File(_fileName);
+		if (!file.exists() || file.isDirectory())
+			throw new FileNotFoundException(_fileName);	
 	}
 
 	@Override
