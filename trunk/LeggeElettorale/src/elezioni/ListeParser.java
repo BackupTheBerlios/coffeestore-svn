@@ -1,12 +1,10 @@
 package elezioni;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import elezioni.utils.FileReader;
 
 public class ListeParser
 {
@@ -47,14 +45,12 @@ public class ListeParser
 		return mapping;
 	}
 
-	public Map<PartitoEnum, Lista> parseCollegio(String fileName) throws IOException
+	public Map<PartitoEnum, Lista> parseCollegio(String fileName) throws WrongListaFileFormat
 	{
 		Map<PartitoEnum, Lista> liste = new HashMap<PartitoEnum, Lista>();
-		BufferedReader reader = new BufferedReader(new FileReader(fileName));
 
-		String line = null;
 		Lista lista = null;
-		while ((line = reader.readLine()) != null)
+		for (String line : new FileReader(fileName))
 		{
 			if (!line.isEmpty())
 			{
