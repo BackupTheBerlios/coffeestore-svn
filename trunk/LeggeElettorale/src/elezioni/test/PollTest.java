@@ -7,6 +7,9 @@ import elezioni.PollDatabase;
 import elezioni.PollParser;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.Map;
 
 
 public class PollTest
@@ -17,11 +20,17 @@ public class PollTest
 		PollDatabase pdb = new PollDatabase();
 		PollParser prs = new PollParser();
 		prs.openPollsFile("varie/sondaggielettorali/sondaggi.txt", pdb);		
-		ArrayList<Poll> arr = pdb.getPolls();
-		for(Poll p: arr)
-		{
-			System.out.println(p.getAuthor());
-		}
 		pdb.updateDBMaps();
+		HashMap<String,ArrayList<Poll>> author = pdb.getAuthorpolls();
+		Set<Map.Entry<String,ArrayList<Poll>>> s = author.entrySet();
+		for(Map.Entry<String,ArrayList<Poll>> ent: s)
+		{
+			System.out.println(ent.getKey());
+			ArrayList<Poll> arr = ent.getValue();
+			for(Poll p : arr)
+			{
+				System.out.println(p.getDt().toString());
+			}
+		}
 	}
 }
