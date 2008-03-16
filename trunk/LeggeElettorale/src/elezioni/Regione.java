@@ -6,12 +6,14 @@ import java.util.Collection;
 public class Regione
 {
 	private String _nome;
-	private Collection<Circoscrizione> _circoscrizioni;
+	private Collection<Circoscrizione> _circoscrizioniCamera;
+	private Collection<Circoscrizione> _circoscrizioniSenato;
 	
 	public Regione(String nome)
 	{
 		_nome = nome;
-		_circoscrizioni = new ArrayList<Circoscrizione>();
+		_circoscrizioniCamera = new ArrayList<Circoscrizione>();
+		_circoscrizioniSenato = new ArrayList<Circoscrizione>();
 	}
 	
 	public String getNome()
@@ -19,13 +21,23 @@ public class Regione
 		return _nome;
 	}
 	
-	public Collection<Circoscrizione> getCircscrizioni()
+	public Collection<Circoscrizione> getCircscrizioniCamera()
 	{
-		return _circoscrizioni;
+		return _circoscrizioniCamera;
 	}
 	
-	public void addCircoscrizione(Circoscrizione circoscrizione)
+	public void addCircoscrizioneCamera(Circoscrizione circoscrizione)
 	{
-		_circoscrizioni.add(circoscrizione);
+		_circoscrizioniCamera.add(circoscrizione);
+	}
+	
+	public Collection<Circoscrizione> getCircscrizioniSenato()
+	{
+		return _circoscrizioniSenato;
+	}
+	
+	public void addCircoscrizioneSenato(Circoscrizione circoscrizione)
+	{
+		_circoscrizioniSenato.add(circoscrizione);
 	}
 }

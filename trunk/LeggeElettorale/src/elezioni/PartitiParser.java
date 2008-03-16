@@ -81,13 +81,16 @@ public class PartitiParser
 
 	private void parseListe(ListeParser parser, String fileName, boolean isCamera, RegioneEnum regioneEnum, String circName) throws FileNotFoundException, WrongListaFileFormat
 	{
-		Regione regione = getRegione(regioneEnum);
+		Regione regione = getOrCreateRegione(regioneEnum);
 		Circoscrizione circoscrizione = new Circoscrizione(circName, getNumParlamentari(isCamera, circName));
-		regione.addCircoscrizione(circoscrizione);
+		if (isCamera)
+			regione.addCircoscrizioneCamera(circoscrizione);
+		else
+			regione.addCircoscrizioneSenato(circoscrizione);
 		Map<PartitoEnum, Lista> currentCircoscrizioni = parser.parseListeCircoscrizione(fileName);
 		for (PartitoEnum partitoEnum : currentCircoscrizioni.keySet())
 		{
-			Partito partito = getPartito(partitoEnum);
+			Partito partito = getOrCreatePartito(partitoEnum);
 			if (isCamera)
 				partito.addToCamera(circoscrizione, currentCircoscrizioni.get(partitoEnum));
 			else
@@ -95,7 +98,7 @@ public class PartitiParser
 		}
 	}
 
-	private Partito getPartito(PartitoEnum partitoEnum)
+	private Partito getOrCreatePartito(PartitoEnum partitoEnum)
 	{
 		Partito partito = _partiti.get(partitoEnum);
 		if (partito == null)
@@ -111,7 +114,7 @@ public class PartitiParser
 		return (isCamera) ? _cameraNumParlamentari.get(circName) : _senatoNumParlamentari.get(circName);
 	}
 
-	private Regione getRegione(RegioneEnum regioneEnum)
+	private Regione getOrCreateRegione(RegioneEnum regioneEnum)
 	{
 		Regione regione = _regioni.get(regioneEnum);
 		if (regione == null)
@@ -122,13 +125,13 @@ public class PartitiParser
 		return regione;
 	}
 	
-	public Map<PartitoEnum, Partito> getPartiti()
+	public Partito getPartito(PartitoEnum partitoEnum)
 	{
-		return _partiti;
+		return _partiti.get(partitoEnum);
 	}
 
-	public Map<RegioneEnum, Regione> getRegioni()
+	public Regione getRegione(RegioneEnum regioneEnum)
 	{
-		return _regioni;
+		return _regioni.get(regioneEnum);
 	}
 }

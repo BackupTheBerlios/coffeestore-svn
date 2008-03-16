@@ -41,34 +41,16 @@ public class TestListeParser
 	{
 		PartitiParser parser = new PartitiParser();
 		parser.parse();
-		Partito pd = parser.getPartiti().get(PartitoEnum.PD);
+		Partito pd = parser.getPartito(PartitoEnum.PD);
 		System.out.println(pd.getName());
-		Regione regione = parser.getRegioni().get(RegioneEnum.Lazio);
-		int i = 0;
-		for (Circoscrizione circoscrizione : regione.getCircscrizioni())
+		Regione regione = parser.getRegione(RegioneEnum.Lazio);
+		for (Circoscrizione circoscrizione : regione.getCircscrizioniSenato())
 		{
-			if (i < 2)
+			Lista lista = pd.getListeSenato(circoscrizione);		
+			for (Parlamentare parlamentare : lista.getCandidati())
 			{
-				Lista lista = pd.getListeCamera(circoscrizione);
-				assertNotNull(lista);
-				
-				for (Parlamentare parlamentare : lista.getCandidati())
-				{
-					System.out.println(parlamentare.getNome() + " " + parlamentare.getCognome());
-				}
+				System.out.println(parlamentare.getNome() + " " + parlamentare.getCognome());
 			}
-			else
-			{
-				Lista lista = pd.getListeSenato(circoscrizione);
-				assertNotNull(lista);
-				
-				for (Parlamentare parlamentare : lista.getCandidati())
-				{
-					System.out.println(parlamentare.getNome() + " " + parlamentare.getCognome());
-				}
-			}
-			
-			i++;
 		}
 	}
 	
