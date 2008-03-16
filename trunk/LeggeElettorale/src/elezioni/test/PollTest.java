@@ -22,5 +22,6 @@ public class PollTest
 		{
 			System.out.println(p.getAuthor());
 		}
+		pdb.updateDBMaps();
 	}
 }
