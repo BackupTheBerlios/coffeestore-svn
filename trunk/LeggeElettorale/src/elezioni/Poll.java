@@ -8,7 +8,7 @@ public class Poll
 {
 	private String _author;
 	private GregorianCalendar _dt;
-	private HashMap<PartitoEnum,Float> _percentages;
+	public HashMap<PartitoEnum,Float> _percentages;
 	
 	public Poll()
 	{

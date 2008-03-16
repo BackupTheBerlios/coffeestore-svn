@@ -7,7 +7,7 @@ public enum PartitoEnum
 	DX,
 	LN,
 	UDC,
-	ITV,
+	IDV,
 	SA,
 	PDL,
 	PD,

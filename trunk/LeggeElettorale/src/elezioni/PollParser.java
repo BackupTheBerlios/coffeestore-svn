@@ -39,12 +39,13 @@ public class PollParser
 		{
 			
 			mypoll.setAuthor(matcher.group(1));
-			mypoll.setDt(new GregorianCalendar(Integer.getInteger(matcher.group(4)),Integer.getInteger(matcher.group(3)),Integer.getInteger(matcher.group(2))));
+			GregorianCalendar gc = new GregorianCalendar(Integer.parseInt(matcher.group(4)),Integer.parseInt(matcher.group(3)),Integer.parseInt(matcher.group(2)));
+			mypoll.setDt(gc);
 			
 			Matcher matchVoti = patternVoti.matcher(matcher.group(5));
+			HashMap<PartitoEnum,Float> map = mypoll.getPercentages();
 			while (matchVoti.find())
 			{
-				HashMap<PartitoEnum,Float> map = mypoll.getPercentages();
 				map.put(PartitoEnum.valueOf(matchVoti.group(1)),Float.valueOf(matchVoti.group(2)));
 			}
 		}

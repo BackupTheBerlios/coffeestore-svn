@@ -36,7 +36,7 @@ public class ListeParser
 		mapping.put(PartitoEnum.DX, dxStrings);
 		mapping.put(PartitoEnum.LN, legaStrings);
 		mapping.put(PartitoEnum.UDC, udcStrings);
-		mapping.put(PartitoEnum.ITV, itvStrings);
+		mapping.put(PartitoEnum.IDV, itvStrings);
 		mapping.put(PartitoEnum.PDL, pdlStrings);
 		mapping.put(PartitoEnum.PD, pdStrings);
 		mapping.put(PartitoEnum.MPA, mpaStrings);
