@@ -10,22 +10,17 @@ public:
 	DummyPlayer(const Point& initialPosition, int number);
 
 	void run(const Perceptions& perceptions, PlayerAction& playerAction);
-
-
 };
 
 class DummyTeamFactory : public AbstractPlayersFactory
 {
 public:
-	DummyTeamFactory(bool flag)
-		:_flag(flag)
-	{
-	}
+	DummyTeamFactory(bool flag);
 
 	std::vector<AbstractPlayer*> createPlayers();
 	void destroyPlayers(std::vector<AbstractPlayer*>& plys);
 
-	~DummyTeamFactory(){};
+	~DummyTeamFactory();;
 
 private:
 	bool _flag;

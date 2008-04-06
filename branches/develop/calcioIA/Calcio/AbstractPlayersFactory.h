@@ -8,9 +8,9 @@ class AbstractPlayer;
 class AbstractPlayersFactory
 {
 public:
+	virtual ~AbstractPlayersFactory() {}
 	virtual std::vector<AbstractPlayer*> createPlayers() = 0;
 	virtual void destroyPlayers(std::vector<AbstractPlayer*>& plys) = 0;
-	virtual ~AbstractPlayersFactory() {}
 };
 
 #endif

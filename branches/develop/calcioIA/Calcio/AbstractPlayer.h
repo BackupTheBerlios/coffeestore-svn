@@ -10,6 +10,7 @@ class AbstractPlayer
 {
 public:
 	AbstractPlayer(const Point& initialPosition, int number);
+	virtual ~AbstractPlayer() {}
 
 	const Point& position() const;
 	int number() const;

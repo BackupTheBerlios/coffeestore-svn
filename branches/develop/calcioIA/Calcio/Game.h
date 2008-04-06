@@ -13,7 +13,7 @@ class Player;
 class Game
 {
 public:
-	Game(AbstractPlayersFactory& factory1,AbstractPlayersFactory& factory2);
+	Game(AbstractPlayersFactory& factory1, AbstractPlayersFactory& factory2);
 
 	const Field& field() const;
 	const Ball& ball() const;

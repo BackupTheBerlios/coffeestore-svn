@@ -1,16 +1,11 @@
 #ifndef GLDRAW_H
 #define GLDRAW_H
 
+#include "Draw.h"
+
 class Point;
 class Line;
 class Rectangle;
-class Ball;
-class Player;
-class Team;
-class Field;
-class Game;
-
-#include "Draw.h"
 
 class GLDraw : public Draw
 {

@@ -8,7 +8,7 @@ Vector::Vector()
 }
 
 Vector::Vector(const Point& tail, const Point& head)
-	:	_p(head.x() - tail.x(),head.y() - tail.y())
+	:	_p(head.x() - tail.x(), head.y() - tail.y())
 {
 }
 

@@ -14,20 +14,6 @@ DummyPlayer::DummyPlayer(const Point& initialPosition, int number)
 
 void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction)
 {
-/*	if (perceptions.ownTeamColor() == Team::Color_RED)
-		LOG_STD << "REDS " << number();
-	else
-		LOG_STD << "BLUES " << number();
-
-	LOG_STD << "Side: " << perceptions.ownTeamSide();
-	LOG_STD << "Ball position: " << perceptions.ballPosition();
-
-	for (Perceptions::PerceivedPlayers::const_iterator it = perceptions.visibleOpponent().begin(); it != perceptions.visibleOpponent().end(); ++it)
-		LOG_STD << "Opponent " << it->number() << ": " << it->position();
-
-	for (Perceptions::PerceivedPlayers::const_iterator it = perceptions.visibleTeamMate().begin(); it != perceptions.visibleTeamMate().end(); ++it)
-		LOG_STD << "Mate " << it->number() << ": " << it->position();
-*/
 	if (perceptions.ownTeamColor() == Team::Color_BLUE)
 		return;
 
@@ -68,6 +54,16 @@ void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction
 	}
 }
 
+DummyTeamFactory::DummyTeamFactory( bool flag ) :_flag(flag)
+{
+
+}
+
+DummyTeamFactory::~DummyTeamFactory()
+{
+
+}
+
 std::vector<AbstractPlayer*> DummyTeamFactory::createPlayers()
 {
 	std::vector<AbstractPlayer*> pl;
@@ -83,3 +79,4 @@ void DummyTeamFactory::destroyPlayers(std::vector<AbstractPlayer*>& plys)
 	for(unsigned int ii = 0;ii < plys.size();++ii)
 		delete plys[ii];
 }
+

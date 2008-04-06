@@ -46,13 +46,14 @@ void display()
 	glFlush();
 }
 
-void ViewMouse(int button, int state, int x, int y)
+void viewMouse(int button, int state, int x, int y)
 {
 
 }
 
-void ViewMouseMotion(int x, int y)
+void viewMouseMotion(int x, int y)
 {
+
 }
 
 void idle()
@@ -79,8 +80,8 @@ int main(int argc,char** argv)
 	glutInitWindowSize(800,450);
 	int in = glutCreateWindow("Soccer");
 	Init();
-	glutMouseFunc(ViewMouse);
-	glutMotionFunc(ViewMouseMotion);
+	glutMouseFunc(viewMouse);
+	glutMotionFunc(viewMouseMotion);
 	glutKeyboardFunc(keyboardFunc);
 	glutIdleFunc(idle);
 	glutDisplayFunc(display);
