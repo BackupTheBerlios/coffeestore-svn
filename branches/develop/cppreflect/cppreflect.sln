@@ -1,0 +1,31 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual C++ Express 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cppreflect_lib", "src\cppreflect_lib.vcproj", "{BE84C030-C7B2-4C19-9E47-1CD3D393F82B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SmokeTest", "SmokeTest\SmokeTest.vcproj", "{5D2869EE-354B-49C7-86DC-18E346BA5964}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcproj", "{AFFFBFDB-7A1C-41BC-924D-4F12A2B49936}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE84C030-C7B2-4C19-9E47-1CD3D393F82B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BE84C030-C7B2-4C19-9E47-1CD3D393F82B}.Debug|Win32.Build.0 = Debug|Win32
+		{BE84C030-C7B2-4C19-9E47-1CD3D393F82B}.Release|Win32.ActiveCfg = Release|Win32
+		{BE84C030-C7B2-4C19-9E47-1CD3D393F82B}.Release|Win32.Build.0 = Release|Win32
+		{5D2869EE-354B-49C7-86DC-18E346BA5964}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5D2869EE-354B-49C7-86DC-18E346BA5964}.Debug|Win32.Build.0 = Debug|Win32
+		{5D2869EE-354B-49C7-86DC-18E346BA5964}.Release|Win32.ActiveCfg = Release|Win32
+		{5D2869EE-354B-49C7-86DC-18E346BA5964}.Release|Win32.Build.0 = Release|Win32
+		{AFFFBFDB-7A1C-41BC-924D-4F12A2B49936}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AFFFBFDB-7A1C-41BC-924D-4F12A2B49936}.Debug|Win32.Build.0 = Debug|Win32
+		{AFFFBFDB-7A1C-41BC-924D-4F12A2B49936}.Release|Win32.ActiveCfg = Release|Win32
+		{AFFFBFDB-7A1C-41BC-924D-4F12A2B49936}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
