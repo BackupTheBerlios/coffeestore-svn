@@ -1,90 +1,46 @@
-#include <cstdlib>
-#include <GL/glut.h>
+#include "Application.h"
+
 #include "Game.h"
 #include "DummyTeam.h"
 #include "GLDraw.h"
 
-#include <cassert>
-
-DummyTeamFactory tm1(true);
-DummyTeamFactory tm2(false);
-Game game(tm1,tm2);
-GLDraw draw;
-
-void Init(void)
+class MyApplication : public Application
 {
-	glClearColor(0.0,.7,0.0,0);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
-}
-
-void display()
-{
-	GLenum er = 0;
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluOrtho2D(-110.0f,110,-110.0f,110.0f);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-
-	glDisable(GL_LIGHT0);
-	glDisable(GL_LIGHTING);
-
-	game.update();
-	draw.draw(game);
-
-	assert(glGetError() == GL_NO_ERROR);
-
-	glutSwapBuffers();
-	glFlush();
-}
-
-void viewMouse(int button, int state, int x, int y)
-{
-
-}
-
-void viewMouseMotion(int x, int y)
-{
-
-}
-
-void idle()
-{
-	glutPostRedisplay();
-}
-
-void keyboardFunc(unsigned char key, int x, int y)
-{
-	switch(key)
+public:
+	MyApplication(int width, int height)
+		:	Application(width, height),
+			_tm1(true), _tm2(false),
+			_game(_tm1, _tm2)
 	{
-	case 27:
-		{
-			exit(0);
-			break;
-		}
+	
 	}
-}
+	
+	void display()
+	{
+		_draw.draw(_game);
+	}
+
+	void update() 
+	{	
+		_game.update();
+	}
+
+	void keyboard(unsigned char key)
+	{
+		if (key == 27)
+			exit(0);
+	}
+
+private:
+	DummyTeamFactory _tm1;
+	DummyTeamFactory _tm2;
+	Game _game;
+	GLDraw _draw;
+};
 
 int main(int argc,char** argv)
-{ 
-	glutInit(&argc,argv);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-	glutInitWindowSize(800,450);
-	int in = glutCreateWindow("Soccer");
-	Init();
-	glutMouseFunc(viewMouse);
-	glutMotionFunc(viewMouseMotion);
-	glutKeyboardFunc(keyboardFunc);
-	glutIdleFunc(idle);
-	glutDisplayFunc(display);
-	glutMainLoop();
+{
+	MyApplication app(800, 450);
+	app.initialize(argc, argv);
 	return 0;
 }
