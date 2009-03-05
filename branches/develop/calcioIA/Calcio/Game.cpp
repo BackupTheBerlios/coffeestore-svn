@@ -6,6 +6,7 @@
 Game::Game(AbstractPlayersFactory& factory1, AbstractPlayersFactory& factory2)
 	:	_ball(Point(0.0f,0.0f)), _teamRed(Team::Color_RED, Team::Side_LEFT,factory1), _teamBlue(Team::Color_BLUE, Team::Side_RIGHT,factory2)
 {
+			
 }
 
 const Field& Game::field() const
@@ -20,11 +21,20 @@ const Ball& Game::ball() const
 
 void Game::updateGameStatus(Player& player, const PlayerAction& playerAction)
 {
-	player.position().x() += playerAction.run().x();
-	player.position().y() += playerAction.run().y();
+	player.position() = player.position() + playerAction.run();
+	player.sightDirection(playerAction.sightDirection());
 
 	_ball.move(playerAction.kick());
 }
+
+
+//void Game::initTeam(const Team& team)
+//{
+//	for(Team::PlayersConstIterator pit = team.playersBegin(); pit != team.playersEnd(); ++pit)
+//	{
+//		(*pit).sightDirection(float(team.side()) * Vector(1.0f,0.0));
+//	}
+//}
 
 void Game::updateTeam(const Team& team)
 {

@@ -27,6 +27,7 @@ public:
 	const PerceivedPlayers& visibleOpponent() const;
 
 	Point playerPosition() const;
+	Vector playerSightDirection() const;
 
 	Team::Color ownTeamColor() const;
 	Team::Color opponentTeamColor() const;

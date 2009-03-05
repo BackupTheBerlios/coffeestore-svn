@@ -5,6 +5,7 @@
 #include "PlayerAction.h"
 #include <cmath>
 #include <cstdlib>
+#include "MathFun.h"
 
 DummyPlayer::DummyPlayer(const Point& initialPosition, int number)
 	:	AbstractPlayer(initialPosition, number)
@@ -60,7 +61,7 @@ std::vector<AbstractPlayer*> DummyTeamFactory::createPlayers()
 {
 	std::vector<AbstractPlayer*> pl;
 	Point init(0.0f,0.0f);
-	for (unsigned int ii = 0; ii < 11;++ii)
+	for (unsigned int ii = 0; ii < 1;++ii)
 	{	
 		pl.push_back(new DummyPlayer(Point(init.x(),init.y()),ii + 1));
 		init = init + Point(0.0,5.0);
@@ -74,3 +75,41 @@ void DummyTeamFactory::destroyPlayers(std::vector<AbstractPlayer*>& plys)
 		delete plys[ii];
 }
 
+
+DummyVoyeurPlayer::DummyVoyeurPlayer( const Point& initialPosition, int number )
+:	AbstractPlayer(initialPosition, number)
+{
+}
+
+void DummyVoyeurPlayer::run( const Perceptions& perceptions, PlayerAction& playerAction )
+{
+	Point me = perceptions.playerPosition();
+	Vector see = perceptions.playerSightDirection();
+	Point ball = perceptions.ballPosition();
+	Vector v(me, ball);
+	float angle = std::acos(v.normalize() * see);	
+	playerAction.doTurnHead(mathfun::rad2Deg(angle));
+}
+
+DummyVoyeurTeamFactory::~DummyVoyeurTeamFactory()
+{
+
+}
+
+std::vector<AbstractPlayer*> DummyVoyeurTeamFactory::createPlayers()
+{
+	std::vector<AbstractPlayer*> pl;
+	Point init(0.0f,0.0f);
+	for (unsigned int ii = 0; ii < 1;++ii)
+	{	
+		pl.push_back(new DummyVoyeurPlayer(Point(init.x(),init.y()),ii + 1));
+		init = init + Point(0.0,5.0);
+	}
+	return pl;
+}
+
+void DummyVoyeurTeamFactory::destroyPlayers(std::vector<AbstractPlayer*>& plys)
+{
+	for(unsigned int ii = 0;ii < plys.size();++ii)
+		delete plys[ii];
+}

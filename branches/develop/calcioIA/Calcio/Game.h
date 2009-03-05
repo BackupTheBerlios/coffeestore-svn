@@ -24,6 +24,7 @@ public:
 	void update();
 
 private:
+	//void initTeam(const Team& team);
 	void updateTeam(const Team& team);
 	void updateGameStatus(Player& player, const PlayerAction& playerAction);
 

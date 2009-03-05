@@ -89,3 +89,8 @@ bool Perceptions::isBallkickable() const
 {
 	return _ball.contains(playerPosition());
 }
+
+Vector Perceptions::playerSightDirection() const
+{
+	return Convertion::toRelativePosition(_player.sightDirection(), ownTeamSide());
+}

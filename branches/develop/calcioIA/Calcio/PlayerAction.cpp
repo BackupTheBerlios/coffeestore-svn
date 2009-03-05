@@ -3,7 +3,7 @@
 #include "MathFun.h"
 
 PlayerAction::PlayerAction(Team::Side side)
-	:	_side(side),_run(0.0f,0.0f),_kick(0.0f,0.0f),_see(float(side) * Vector(1.0f,1.0f))
+	:	_side(side),_run(0.0f,0.0f),_kick(0.0f,0.0f),_see(float(side) * Vector(1.0f,0.0f))
 {
 
 }
