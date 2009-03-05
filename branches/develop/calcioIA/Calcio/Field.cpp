@@ -1,13 +1,27 @@
 #include "Field.h"
 
-Field::Field()
-	:	_corner(Point(-100.0f,-100.0f), Point(100.0f,100.0f)),
-		_mid(Point(0.0f,100.0f), Point(0.0f,-100.0f)),
+Field::Field(int fieldWidth, int fieldHeight)
+	:	_corner(createCorner(fieldWidth, fieldHeight)),
+		_mid(createMid(fieldHeight)),
 		_boxLeft(Point(-100.0f,-65.0f), Point(-70.0f,65.0f)),
 		_boxRight(Point(70.0f,-65.0f), Point(100.0f,65.0f))
 		
 {
 
+}
+
+Rectangle Field::createCorner(int fieldWidth, int fieldHeight) const
+{
+	Point a(-fieldWidth/2.0f, -fieldHeight/2.0f);
+	Point c(fieldWidth/2.0f, fieldHeight/2.0f);
+	return Rectangle(a, c);
+}
+
+Line Field::createMid(int fieldHeight) const
+{
+	Point a(0.0f, fieldHeight/2.0f);
+	Point b(0.0f, -fieldHeight/2.0f);
+	return Line(a, b);
 }
 
 const Rectangle& Field::corner() const

@@ -27,21 +27,38 @@ string Configuration::getValue(const string& key) const
 	return _dictionary.find(key)->second;
 }
 
+bool Configuration::isDigit(const string& str) const
+{
+	bool res = true;
+	for (string::const_iterator it = str.begin(); it != str.end(); ++it)
+	{
+		if (!isdigit(*it))
+			res = false;
+	}
+	return res;
+}
+
 bool Configuration::isInteger(const std::string& key) const
 {
 	bool res = false;
 	Dictionary::const_iterator it = _dictionary.find(key);
 	if (it != _dictionary.end())
-	{
-		int value = atoi(key.c_str());
-		res = value != INT_MIN && value != INT_MAX ;
-	}
+		res = isDigit(it->second);
 	return res;
 }
 
 int Configuration::getInteger(const std::string& key) const
 {
 	return atoi(getValue(key).c_str());
+}
+
+int Configuration::getInteger(const std::string& key, int defValue) const
+{
+	int res = defValue;
+	if (isInteger(key))
+		res = getInteger(key);
+
+	return res;
 }
 
 string Configuration::trim(const string& str) const

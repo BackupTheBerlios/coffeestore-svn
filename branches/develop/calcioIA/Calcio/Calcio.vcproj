@@ -180,6 +180,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\GameConfiguration.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Line.cpp"
 				>
 			</File>
@@ -267,6 +271,10 @@
 			</File>
 			<File
 				RelativePath=".\Game.h"
+				>
+			</File>
+			<File
+				RelativePath=".\GameConfiguration.h"
 				>
 			</File>
 			<File

@@ -5,6 +5,7 @@
 #include "Ball.h"
 #include "Team.h"
 #include "Perceptions.h"
+#include "GameConfiguration.h"
 
 class PlayerAction;
 class AbstractPlayersFactory;
@@ -28,6 +29,7 @@ private:
 	void updateTeam(const Team& team);
 	void updateGameStatus(Player& player, const PlayerAction& playerAction);
 
+	GameConfiguration _gameConfiguration;
 	Field _field;
 	Ball _ball;
 	Team _teamRed;

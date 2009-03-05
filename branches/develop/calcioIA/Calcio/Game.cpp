@@ -4,9 +4,12 @@
 #include "Player.h"
 
 Game::Game(AbstractPlayersFactory& factory1, AbstractPlayersFactory& factory2)
-	:	_ball(Point(0.0f,0.0f)), _teamRed(Team::Color_RED, Team::Side_LEFT,factory1), _teamBlue(Team::Color_BLUE, Team::Side_RIGHT,factory2)
+	:	_field(_gameConfiguration.fieldWidth(), _gameConfiguration.fieldHeight()),
+		_ball(Point(0.0f,0.0f)), 
+		_teamRed(Team::Color_RED, Team::Side_LEFT,factory1),
+		_teamBlue(Team::Color_BLUE, Team::Side_RIGHT,factory2)
 {
-			
+
 }
 
 const Field& Game::field() const

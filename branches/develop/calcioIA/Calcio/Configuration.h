@@ -17,8 +17,11 @@ public:
 	bool isInteger(const std::string& key) const; 
 	int getInteger(const std::string& key) const;
 
+	int getInteger(const std::string& key, int defValue) const;
+
 private:
 	std::string trim(const std::string& str) const;
+	bool isDigit(const std::string& str) const;
 
 	Dictionary _dictionary;
 };

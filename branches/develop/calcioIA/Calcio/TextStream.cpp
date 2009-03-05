@@ -18,7 +18,7 @@ bool TextFileStream::exists() const
 
 bool TextFileStream::hasLine()
 {
-	return !_stream.eof();
+	return exists() && !_stream.eof();
 }
 
 string TextFileStream::getLine()
