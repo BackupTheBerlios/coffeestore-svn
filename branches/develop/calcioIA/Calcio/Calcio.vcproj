@@ -160,6 +160,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Configuration.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Convertion.cpp"
 				>
 			</File>
@@ -212,6 +216,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\TextStream.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Vector.cpp"
 				>
 			</File>
@@ -235,6 +243,10 @@
 			</File>
 			<File
 				RelativePath=".\Circle.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Configuration.h"
 				>
 			</File>
 			<File
@@ -295,6 +307,10 @@
 			</File>
 			<File
 				RelativePath=".\Team.h"
+				>
+			</File>
+			<File
+				RelativePath=".\TextStream.h"
 				>
 			</File>
 			<File

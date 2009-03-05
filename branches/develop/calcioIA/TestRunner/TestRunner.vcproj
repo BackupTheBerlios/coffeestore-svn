@@ -177,7 +177,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\TestConfiguration.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\TestDummy.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\TestTextStream.cpp"
 				>
 			</File>
 		</Filter>
