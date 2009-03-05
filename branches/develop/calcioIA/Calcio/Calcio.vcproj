@@ -266,6 +266,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\MathFun.h"
+				>
+			</File>
+			<File
 				RelativePath=".\PerceivedPlayer.h"
 				>
 			</File>

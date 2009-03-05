@@ -48,6 +48,11 @@ Vector operator * (float s, const Vector& v)
 	return Vector(v.x() * s, v.y() * s);
 }
 
+float operator*( const Vector& v0,const Vector& v1 )
+{
+	return v0.x() * v1.x() + v0.y() * v1.y();
+}
+
 Point operator + (const Vector& v,const Point& p)
 {
 	return Point(v.x() + p.x(),v.y() + p.y());
