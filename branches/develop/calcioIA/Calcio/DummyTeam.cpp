@@ -51,11 +51,6 @@ void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction
 	}
 }
 
-DummyTeamFactory::DummyTeamFactory( bool flag ) :_flag(flag)
-{
-
-}
-
 DummyTeamFactory::~DummyTeamFactory()
 {
 
@@ -64,23 +59,11 @@ DummyTeamFactory::~DummyTeamFactory()
 std::vector<AbstractPlayer*> DummyTeamFactory::createPlayers()
 {
 	std::vector<AbstractPlayer*> pl;
-	if (_flag)
+	Point init(0.0f,0.0f);
+	for (unsigned int ii = 0; ii < 11;++ii)
 	{	
-		Point init(0.0f,0.0f);
-		for (unsigned int ii = 0; ii < 11;++ii)
-		{
-			pl.push_back(new DummyPlayer(Point(init.x(),init.y()),ii + 1));
-			init = init  + Point(0.0,5.0);
-		}
-	}
-	else
-	{
-			Point init(0.0f,0.0f);
-			for (unsigned int ii = 0; ii < 11;++ii)
-			{	
-				pl.push_back(new DummyPlayer(Point(init.x(),init.y()),ii + 1));
-				init = init + Point(0.0,5.0);
-			}
+		pl.push_back(new DummyPlayer(Point(init.x(),init.y()),ii + 1));
+		init = init + Point(0.0,5.0);
 	}
 	return pl;
 }

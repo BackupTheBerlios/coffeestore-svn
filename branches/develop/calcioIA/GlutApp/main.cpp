@@ -9,7 +9,6 @@ class MyApplication : public Application
 public:
 	MyApplication(int width, int height)
 		:	Application(width, height),
-			_tm1(true), _tm2(false),
 			_game(_tm1, _tm2)
 	{
 	

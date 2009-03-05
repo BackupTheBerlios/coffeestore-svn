@@ -15,15 +15,10 @@ public:
 class DummyTeamFactory : public AbstractPlayersFactory
 {
 public:
-	DummyTeamFactory(bool flag);
+	~DummyTeamFactory();
 
 	std::vector<AbstractPlayer*> createPlayers();
 	void destroyPlayers(std::vector<AbstractPlayer*>& plys);
-
-	~DummyTeamFactory();;
-
-private:
-	bool _flag;
 };
 
 #endif
