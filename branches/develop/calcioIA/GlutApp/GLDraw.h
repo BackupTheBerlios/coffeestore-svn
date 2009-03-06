@@ -12,7 +12,7 @@ class GLDraw : public Draw
 public:
 	void draw(const Ball& ball);
 	void draw(const Team& team);
-	void draw(const Player& player);
+	void draw(const Player& player, const bool sightdir = false);
 	void draw(const Field& field);
 	void draw(const Game& game);
 

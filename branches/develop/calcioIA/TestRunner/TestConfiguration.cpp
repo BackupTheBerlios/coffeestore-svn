@@ -90,7 +90,7 @@ TEST(TestConfigurationIsIntegerFails)
 	textStream.add("Variable = xx");
 
 	Configuration configuration(textStream);
-	CHECK(configuration.isInteger("Variable"));
+	CHECK(!configuration.isInteger("Variable"));
 }
 
 TEST(TestConfigurationGetInteger)
@@ -100,4 +100,31 @@ TEST(TestConfigurationGetInteger)
 
 	Configuration configuration(textStream);
 	CHECK_EQUAL(22, configuration.getInteger("Variable"));
+}
+
+TEST(TestConfigurationGetIntegerDefaultNotFound)
+{
+	FakeTextStream textStream;
+	textStream.add("VariableX = 19");
+
+	Configuration configuration(textStream);
+	CHECK_EQUAL(22, configuration.getInteger("Variable", 22));
+}
+
+TEST(TestConfigurationGetIntegerDefaultNotInteger)
+{
+	FakeTextStream textStream;
+	textStream.add("Variable = xx");
+
+	Configuration configuration(textStream);
+	CHECK_EQUAL(22, configuration.getInteger("Variable", 22));
+}
+
+TEST(TestConfigurationGetIntegerDefault)
+{
+	FakeTextStream textStream;
+	textStream.add("Variable = 21");
+
+	Configuration configuration(textStream);
+	CHECK_EQUAL(21, configuration.getInteger("Variable", 22));
 }

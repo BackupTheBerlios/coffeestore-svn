@@ -5,7 +5,9 @@
 
 GameConfiguration::GameConfiguration()
 	:	_fieldWidthDefault(100),
-		_fieldHeightDefault(100)
+		_fieldHeightDefault(100),
+		_boxWidthPctDefault(30),
+		_boxHeightPctDefault(50)
 {
 	TextFileStream fileStream("calcio.ini");
 	assert(fileStream.exists());
@@ -13,6 +15,8 @@ GameConfiguration::GameConfiguration()
 	Configuration config(fileStream);
 	_fieldWidth = config.getInteger("FieldWidth", _fieldWidthDefault);
 	_fieldHeight = config.getInteger("FieldHeight", _fieldHeightDefault);
+	_boxWidthPct = config.getInteger("BoxWidthPct", _boxWidthPctDefault);
+	_boxHeightPct = config.getInteger("BoxHeightPct", _boxHeightPctDefault);
 }
 
 int GameConfiguration::fieldWidth() const
@@ -25,3 +29,12 @@ int GameConfiguration::fieldHeight() const
 	return _fieldHeight;
 }
 
+int GameConfiguration::boxWidthPct() const
+{
+	return _boxWidthPct;
+}
+
+int GameConfiguration::boxHeightPct() const
+{
+	return _boxHeightPct;
+}

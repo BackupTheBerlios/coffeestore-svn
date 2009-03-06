@@ -7,7 +7,7 @@
 class Field
 {
 public:
-	Field(int fieldWidth, int fieldHeight);
+	Field(int fieldWidth, int fieldHeight, int boxWidthPct, int boxHeighPct);
 
 	const Rectangle& corner() const;
 	const Line& mid() const;
@@ -17,6 +17,8 @@ public:
 private:
 	Rectangle createCorner(int fieldWidth, int fieldHeight) const;
 	Line createMid(int fieldHeight) const;
+	Rectangle createBoxLeft(int fieldWidth, int fieldHeight, int boxWidthPct, int boxHeightPct) const;
+	Rectangle createBoxRigth(int fieldWidth, int fieldHeight, int boxWidthPct, int boxHeightPct) const;
 
 	Rectangle _corner;
 	Line _mid;
