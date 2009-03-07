@@ -26,5 +26,6 @@ Point operator + (const Point& p1, const Point& p2);
 Point operator / (const Point& p, float f);
 
 std::ostream& operator << (std::ostream& os, const Point& point);
+bool operator == (const Point& p1, const Point& p2);
 
 #endif

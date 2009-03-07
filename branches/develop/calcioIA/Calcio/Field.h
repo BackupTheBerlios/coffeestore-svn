@@ -19,6 +19,7 @@ private:
 	Line createMid(int fieldHeight) const;
 	Rectangle createBoxLeft(int fieldWidth, int fieldHeight, int boxWidthPct, int boxHeightPct) const;
 	Rectangle createBoxRigth(int fieldWidth, int fieldHeight, int boxWidthPct, int boxHeightPct) const;
+	Point getBoxDelta(int fieldWidth, int fieldHeight, int boxWidthPct, int boxHeightPct) const;
 
 	Rectangle _corner;
 	Line _mid;

@@ -20,4 +20,7 @@ private:
 	Point _c;
 };
 
+bool operator == (const Rectangle& rectangle1, const Rectangle& rectangle2);
+std::ostream& operator << (std::ostream& os, const Rectangle& rectangle);
+
 #endif
