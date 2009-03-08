@@ -1,6 +1,7 @@
 #include "PlayerAction.h"
 #include "Convertion.h"
 #include "MathFun.h"
+#include <cmath>
 
 PlayerAction::PlayerAction(Team::Side side)
 	:	_side(side),_run(0.0f,0.0f),_kick(0.0f,0.0f),_see(float(side) * Vector(1.0f,0.0f))

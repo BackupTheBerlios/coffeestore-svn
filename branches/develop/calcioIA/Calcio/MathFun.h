@@ -1,23 +1,10 @@
 #ifndef MATHFUN_H
 #define MATHFUN_H
 
-#include <cmath>
-
-#ifndef M_PI
-#define M_PI  3.14159265358979323846
-#endif
-
 namespace mathfun
 {
-	static float deg2Rad(const float deg)
-	{
-		return float(M_PI) * deg / 180.0f;
-	}
-
-	static float rad2Deg(const float rad)
-	{
-		return 180.0f * rad / float(M_PI);
-	}
+	float deg2Rad(const float deg);
+	float rad2Deg(const float rad);
 }
 
 #endif

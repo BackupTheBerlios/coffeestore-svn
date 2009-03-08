@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB;_USE_MATH_DEFINES"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -103,7 +103,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
+				PreprocessorDefinitions="WIN32;NDEBUG;_LIB;_USE_MATH_DEFINES"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -189,6 +189,10 @@
 			</File>
 			<File
 				RelativePath=".\Logger.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\MathFun.cpp"
 				>
 			</File>
 			<File
