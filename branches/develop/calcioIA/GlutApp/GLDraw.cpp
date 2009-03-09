@@ -33,7 +33,7 @@ void GLDraw::draw(const Team& team)
 	glPopAttrib();
 }
 
-void GLDraw::draw(const Player& player, const bool sightdir/* = false*/)
+void GLDraw::draw(const Player& player)
 {
 	drawFilledCircle(player.position(), player.radius());
 }
