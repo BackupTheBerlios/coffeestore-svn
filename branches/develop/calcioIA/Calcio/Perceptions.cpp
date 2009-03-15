@@ -3,13 +3,16 @@
 #include "Game.h"
 #include "Player.h"
 #include "Convertion.h"
+#include "Field.h"
 #include "AbstractPlayer.h"
+#include <cmath>
 
 Perceptions::Perceptions(const Game& game, Team::Color color, const Player& player)
 	:	_player(player),
 		_ownTeam((Team::Color_BLUE == color) ? game.teamBlue() : game.teamRed()),
 		_opponentTeam((Team::Color_RED == color) ? game.teamBlue() : game.teamRed()),
-		_ball(initBall(game))
+		_ball(initBall(game)),
+		_field(game.field())
 {
 	initOpponentVect(game);
 	initTeamMateVect(game);
@@ -54,6 +57,18 @@ const Perceptions::PerceivedPlayers& Perceptions::visibleOpponent() const
 Point Perceptions::playerPosition() const
 {
 	return Convertion::toRelativePosition(_player.position(), ownTeamSide());
+}
+
+Perceptions::PositionPct Perceptions::playerPositionPct() const
+{
+	Point start = _field.corner().a();
+	Point end = _field.corner().c();
+	Point pos = _player.position();
+
+	float widthPct = (100.0f * (ownTeamSide() * pos.x() + -1.0f * start.x())) / (-1.0f * start.x() + end.x());
+	float heightPct = (100.0f * (ownTeamSide() * pos.y() + -1.0f * start.y())) / (-1.0f * start.y() + end.y());
+
+	return PositionPct(int(widthPct), int(heightPct));
 }
 
 Ball Perceptions::initBall(const Game& game)

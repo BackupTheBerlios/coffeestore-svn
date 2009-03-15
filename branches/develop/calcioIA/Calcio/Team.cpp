@@ -1,33 +1,26 @@
-#include <algorithm>
 #include "Team.h"
 #include "Player.h"
 #include "AbstractPlayer.h"
 #include "AbstractPlayersFactory.h"
 #include "Convertion.h"
 
-class PlayerConverter
+Team::Team(Color color, Side side, AbstractPlayersFactory& factory)
+	:	_color(color), _side(side), _factory(factory)
 {
-public:
-	AbstractPlayer* operator()(Player* pl)
-	{
-		return &pl->abstractPlayer();
-	}
-};
-
-Team::Team(Color color, Side side,AbstractPlayersFactory& fact)
-	:	_color(color), _side(side),_fact(fact)
-{
-	init(fact);
+	init(factory);
 }
 
 Team::~Team()
 {
-	std::vector<AbstractPlayer*> vct(_players.size());
-	std::transform(playersBegin(), playersEnd(), vct.begin(), PlayerConverter());
-	_fact.destroyPlayers(vct);
+	std::vector<AbstractPlayer*> abstractPlayers;
+	for (Team::PlayersIterator it = playersBegin(); it != playersEnd(); ++it)
+	{
+		Player* player = *it;
+		abstractPlayers.push_back(&player->abstractPlayer());
+		delete player;
+	}
 
-	for(unsigned int ii = 0; ii < _players.size(); ++ii)
-		delete _players[ii];
+	_factory.destroyPlayers(abstractPlayers);
 }
 
 void Team::init(AbstractPlayersFactory& teamFactory)

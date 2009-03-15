@@ -5,6 +5,7 @@ class GameConfiguration
 {
 public:
 	GameConfiguration();
+	GameConfiguration(int fieldWidth, int fieldHeight, int boxWidthPct, int boxHeighPct);
 
 	int fieldWidth() const;
 	int fieldHeight() const;
@@ -13,6 +14,8 @@ public:
 	int boxHeightPct() const;
 
 private:
+	void setDefaults();
+
 	int _fieldWidthDefault;
 	int _fieldHeightDefault;
 	int _boxWidthPctDefault;

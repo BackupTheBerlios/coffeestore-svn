@@ -1,2 +1,1 @@
-Fabio:
-- Percezione posizione nel campo. (es. centrocampo è 50%,50%)
+BUG: Le posizioni relative sono sbagliate.

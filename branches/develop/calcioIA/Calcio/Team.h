@@ -25,7 +25,7 @@ public:
 		Side_RIGHT = -1
 	};
 
-	Team(Color color, Side side, AbstractPlayersFactory& fact);
+	Team(Color color, Side side, AbstractPlayersFactory& factory);
 	~Team();
 
 	Color color() const;
@@ -39,7 +39,7 @@ public:
 private:
 	void init(AbstractPlayersFactory& teamFactory);
 
-	AbstractPlayersFactory& _fact;
+	AbstractPlayersFactory& _factory;
 	Players _players;
 	Color  _color;
 	Side _side;

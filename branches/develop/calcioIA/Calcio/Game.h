@@ -1,20 +1,19 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Field.h"
 #include "Ball.h"
 #include "Team.h"
 #include "Perceptions.h"
-#include "GameConfiguration.h"
 
 class PlayerAction;
 class AbstractPlayersFactory;
 class Player;
+class Field;
 
 class Game
 {
 public:
-	Game(AbstractPlayersFactory& factory1, AbstractPlayersFactory& factory2);
+	Game(const Field& field, AbstractPlayersFactory& factoryRed, AbstractPlayersFactory& factoryBlue);
 
 	const Field& field() const;
 	const Ball& ball() const;
@@ -26,10 +25,9 @@ public:
 
 private:
 	void updateTeam(const Team& team);
-	void updateGameStatus(Player& player, const PlayerAction& playerAction, const Team& team);
+	void updateGameStatus(Player& player, const PlayerAction& playerAction);
 
-	GameConfiguration _gameConfiguration;
-	Field _field;
+	const Field& _field;
 	Ball _ball;
 	Team _teamRed;
 	Team _teamBlue;

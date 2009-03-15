@@ -20,5 +20,5 @@ std::vector<AbstractPlayer*> NullTeamFactory::createPlayers()
 
 void NullTeamFactory::destroyPlayers(std::vector<AbstractPlayer*>& plys)
 {
-	delete &plys.front();
+	delete plys.front();
 }

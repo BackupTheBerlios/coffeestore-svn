@@ -10,7 +10,7 @@ void GlutLoggerWriter::flush(const Application& application)
 		for (std::vector<std::string>::const_iterator it = _lines.begin(); it != _lines.end(); ++it)
 		{
 			application.writeString(Point(10, y), *it);
-			y += 10.0f;
+			y += 14.0f;
 		}
 
 		_lines.clear();

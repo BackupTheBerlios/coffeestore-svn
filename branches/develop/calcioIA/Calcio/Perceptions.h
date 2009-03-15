@@ -11,6 +11,7 @@
 
 class Player;
 class Game;
+class Field;
 
 class Perceptions
 {
@@ -40,6 +41,7 @@ public:
 	const PerceivedPlayers& visibleOpponent() const;
 
 	Point playerPosition() const;
+	PositionPct playerPositionPct() const;
 	Vector playerSightDirection() const;
 
 	Team::Color ownTeamColor() const;
@@ -60,6 +62,8 @@ private:
 	const Team& _opponentTeam;
 	
 	Ball _ball;
+
+	const Field& _field;
 };
 
 #endif

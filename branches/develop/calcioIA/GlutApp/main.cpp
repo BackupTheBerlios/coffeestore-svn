@@ -1,19 +1,22 @@
-#include "Application.h"
+#include <Game.h>
+#include <Field.h>
+#include <GameConfiguration.h>
+#include <DummyTeam.h>
+#include <NullTeam.h>
 
-#include "Game.h"
-#include "DummyTeam.h"
+#include "Application.h"
 #include "GLDraw.h"
 #include "UserDrivenTeam.h"
-#include <NullTeam.h>
 
 class MyApplication : public Application
 {
 public:
 	MyApplication(int width, int height)
 		:	Application(width, height),
-			_game(_userDrivenTeamFactory, _nullTeamFactory)
-			//_game(_nullTeamFactory, _userDrivenTeamFactory) // inverted keys
-			//_game(_tm1, _tm2)
+			_field(_gameConfiguration.fieldWidth(), _gameConfiguration.fieldHeight(), _gameConfiguration.boxWidthPct(), _gameConfiguration.boxHeightPct()),
+			_game(_field, _userDrivenTeamFactory, _nullTeamFactory)
+			//_game(_field, _nullTeamFactory, _userDrivenTeamFactory) // inverted keys
+			//_game(_field, _tm1, _tm2)
 	{
 	
 	}
@@ -45,6 +48,8 @@ public:
 	}
 
 private:
+	GameConfiguration _gameConfiguration;
+	Field _field;
 	UserDrivenTeamFactory _userDrivenTeamFactory;
 	NullTeamFactory _nullTeamFactory;
 	//DummyTeamFactory _tm1;
