@@ -191,6 +191,10 @@
 				RelativePath=".\GlutLoggerWriter.h"
 				>
 			</File>
+			<File
+				RelativePath=".\UserDrivenTeam.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Source Files"
@@ -211,6 +215,10 @@
 			</File>
 			<File
 				RelativePath=".\main.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\UserDrivenTeam.cpp"
 				>
 			</File>
 		</Filter>

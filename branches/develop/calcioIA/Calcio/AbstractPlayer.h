@@ -12,7 +12,7 @@ public:
 	AbstractPlayer(const Point& initialPosition, int number);
 	virtual ~AbstractPlayer() {}
 
-	const Point& position() const;
+	const Point& initialPosition() const;
 	int number() const;
 
 	virtual void run(const Perceptions& perceptions, PlayerAction& playerAction) = 0;

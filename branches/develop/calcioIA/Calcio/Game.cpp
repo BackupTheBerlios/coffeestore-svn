@@ -31,9 +31,10 @@ void Game::updateGameStatus(Player& player, const PlayerAction& playerAction, co
 	_ball.move(playerAction.kick());
 
 	const char* teamColor = (team.color() == Team::Color_BLUE) ? "Blue" : "Red";
-	LOG_STD << LOG_ELEM(Team, teamColor) << LOG_ELEM(Player, player.abstractPlayer().number());
-	LOG_STD << "\t" << LOG_ELEM(Run, playerAction.run())
+	LOG_STD << LOG_ELEM(Team, teamColor) << LOG_ELEM(Player, player.abstractPlayer().number()) << LOG_ELEM(Type, typeid(player.abstractPlayer()).name());
+	LOG_STD << "\t" << LOG_ELEM(Run, playerAction.run());
 	LOG_STD << "\t" << LOG_ELEM(Kick, playerAction.kick());
+	LOG_STD << "\t" << LOG_ELEM(AbsolutePos, player.position());
 	LOG_STD << "";
 }
 

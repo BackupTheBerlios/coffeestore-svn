@@ -36,7 +36,7 @@ void Team::init(AbstractPlayersFactory& teamFactory)
 	for(std::vector<AbstractPlayer*>::iterator it = pl.begin(); it != pl.end(); ++it)
 	{
 		Player* tmp = new Player(*(*it));
-		tmp->position() = Convertion::toAbsoultePosition((*it)->position(), _side);
+		tmp->position() = Convertion::toAbsoultePosition((*it)->initialPosition(), _side);
  		_players.push_back(tmp);
 	}
 }

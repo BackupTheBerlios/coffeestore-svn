@@ -3,36 +3,52 @@
 #include "Game.h"
 #include "DummyTeam.h"
 #include "GLDraw.h"
+#include "UserDrivenTeam.h"
+#include <NullTeam.h>
 
 class MyApplication : public Application
 {
 public:
 	MyApplication(int width, int height)
 		:	Application(width, height),
-			_game(_tm1, _tm2)
+			_game(_userDrivenTeamFactory, _nullTeamFactory)
+			//_game(_nullTeamFactory, _userDrivenTeamFactory) // inverted keys
+			//_game(_tm1, _tm2)
 	{
 	
 	}
 	
-	void display()
+	virtual void display()
 	{
 		_draw.draw(_game);
 	}
 
-	void update() 
+	virtual void update() 
 	{	
 		_game.update();
 	}
 
-	void keyboard(unsigned char key)
+	virtual void keyboard(unsigned char key)
 	{
 		if (key == 27)
 			exit(0);
 	}
 
+	virtual void specialKeyDown(SpecialKey specialKey)
+	{
+		_userDrivenTeamFactory.onSpecialKeyDown(specialKey);
+	}
+
+	virtual void specialKeyUp(SpecialKey specialKey)
+	{
+		_userDrivenTeamFactory.onSpecialKeyUp(specialKey);
+	}
+
 private:
-	DummyTeamFactory _tm1;
-	DummyTeamFactory _tm2;
+	UserDrivenTeamFactory _userDrivenTeamFactory;
+	NullTeamFactory _nullTeamFactory;
+	//DummyTeamFactory _tm1;
+	//DummyTeamFactory _tm2;
 	Game _game;
 	GLDraw _draw;
 };

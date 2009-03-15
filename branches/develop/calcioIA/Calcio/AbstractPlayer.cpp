@@ -6,7 +6,7 @@ AbstractPlayer::AbstractPlayer(const Point& initialPosition, int number)
 
 }
 
-const Point& AbstractPlayer::position() const
+const Point& AbstractPlayer::initialPosition() const
 {
 	return _initialPosition;
 }

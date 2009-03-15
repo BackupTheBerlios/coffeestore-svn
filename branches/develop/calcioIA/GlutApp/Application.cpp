@@ -36,9 +36,21 @@ void Application::initialize(int argc, char** argv)
 	glEnable(GL_CULL_FACE);
 
 	glutKeyboardFunc(_keyboard);
+	glutSpecialFunc(_special);
+	glutSpecialUpFunc(_specialUp);
 	glutIdleFunc(_idle);
 	glutDisplayFunc(_display);
 	glutMainLoop();
+}
+
+void Application::specialKeyUp(SpecialKey specialKey)
+{
+
+}
+
+void Application::specialKeyDown(SpecialKey specialKey)
+{
+
 }
 
 std::string Application::title() const
@@ -89,6 +101,48 @@ void Application::_display()
 void Application::_keyboard(unsigned char key, int x, int y)
 {
 	_instance->keyboard(key);
+}
+
+void Application::_special(int key, int x, int y)
+{
+	switch (key)
+	{
+	case GLUT_KEY_LEFT:
+		_instance->specialKeyDown(SpecialKey_Left);
+		break;
+	case GLUT_KEY_RIGHT:
+		_instance->specialKeyDown(SpecialKey_Right);
+		break;
+	case GLUT_KEY_DOWN:
+		_instance->specialKeyDown(SpecialKey_Down);
+		break;
+	case GLUT_KEY_UP:
+		_instance->specialKeyDown(SpecialKey_Up);
+		break;
+	default:
+		break;
+	}
+}
+
+void Application::_specialUp(int key, int x, int y)
+{
+	switch (key)
+	{
+	case GLUT_KEY_LEFT:
+		_instance->specialKeyUp(SpecialKey_Left);
+		break;
+	case GLUT_KEY_RIGHT:
+		_instance->specialKeyUp(SpecialKey_Right);
+		break;
+	case GLUT_KEY_DOWN:
+		_instance->specialKeyUp(SpecialKey_Down);
+		break;
+	case GLUT_KEY_UP:
+		_instance->specialKeyUp(SpecialKey_Up);
+		break;
+	default:
+		break;
+	}
 }
 
 void Application::writeString(const Point& position, const std::string& str) const
