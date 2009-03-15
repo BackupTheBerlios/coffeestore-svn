@@ -1,4 +1,6 @@
 #include "Application.h"
+#include "GlutLoggerWriter.h"
+#include <Point.h>
 #include <cstdlib>
 #include <cassert>
 #include <GL/glut.h>
@@ -9,6 +11,8 @@ Application::Application(int width, int height)
 	:	_width(width), _height(height)	
 {
 	_instance = this;
+
+	Logger::setWriter(_loggerWriter);
 }
 
 Application::~Application()
@@ -21,7 +25,7 @@ void Application::initialize(int argc, char** argv)
 	glutInit(&argc,argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 	glutInitWindowSize(_width, _height);
-	glutCreateWindow(title());
+	glutCreateWindow(title().c_str());
 	glClearColor(0.0f, 0.7f, 0.0f, 0.0f);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -37,7 +41,7 @@ void Application::initialize(int argc, char** argv)
 	glutMainLoop();
 }
 
-const char* Application::title() const
+std::string Application::title() const
 {
 	return "Application";
 }
@@ -74,6 +78,8 @@ void Application::_display()
 	_instance->update();
 	_instance->display();
 
+	_instance->_loggerWriter.flush(*_instance);
+
 	assert(glGetError() == GL_NO_ERROR);
 
 	glutSwapBuffers();
@@ -83,4 +89,28 @@ void Application::_display()
 void Application::_keyboard(unsigned char key, int x, int y)
 {
 	_instance->keyboard(key);
+}
+
+void Application::writeString(const Point& position, const std::string& str) const
+{
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	gluOrtho2D(0, _width, 0, _height);
+
+	void* font = GLUT_BITMAP_HELVETICA_12;
+	float x = position.x();
+	glPushAttrib(GL_COLOR_BUFFER_BIT);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
+	{
+		glRasterPos3f(x, _height - position.y(), 1.0f);
+		glutBitmapCharacter(font, *it);
+		x += glutBitmapWidth(font, *it);
+	}
+	glPopAttrib();
+
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
 }

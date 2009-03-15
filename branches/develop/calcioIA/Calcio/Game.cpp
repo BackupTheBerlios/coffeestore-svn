@@ -2,6 +2,7 @@
 #include "PlayerAction.h"
 #include "AbstractPlayer.h"
 #include "Player.h"
+#include "Logger.h"
 
 Game::Game(AbstractPlayersFactory& factory1, AbstractPlayersFactory& factory2)
 	:	_field(_gameConfiguration.fieldWidth(), _gameConfiguration.fieldHeight(), _gameConfiguration.boxWidthPct(), _gameConfiguration.boxHeightPct()),
@@ -22,22 +23,19 @@ const Ball& Game::ball() const
 	return _ball;
 }
 
-void Game::updateGameStatus(Player& player, const PlayerAction& playerAction)
+void Game::updateGameStatus(Player& player, const PlayerAction& playerAction, const Team& team)
 {
 	player.position() = player.position() + playerAction.run();
 	player.sightDirection(playerAction.sightDirection());
 
 	_ball.move(playerAction.kick());
+
+	const char* teamColor = (team.color() == Team::Color_BLUE) ? "Blue" : "Red";
+	LOG_STD << LOG_ELEM(Team, teamColor) << LOG_ELEM(Player, player.abstractPlayer().number());
+	LOG_STD << "\t" << LOG_ELEM(Run, playerAction.run())
+	LOG_STD << "\t" << LOG_ELEM(Kick, playerAction.kick());
+	LOG_STD << "";
 }
-
-
-//void Game::initTeam(const Team& team)
-//{
-//	for(Team::PlayersConstIterator pit = team.playersBegin(); pit != team.playersEnd(); ++pit)
-//	{
-//		(*pit).sightDirection(float(team.side()) * Vector(1.0f,0.0));
-//	}
-//}
 
 void Game::updateTeam(const Team& team)
 {
@@ -47,7 +45,7 @@ void Game::updateTeam(const Team& team)
 		PlayerAction action(team.side());
 		Perceptions perception(*this, team.color(), *(*pit));
 		player->abstractPlayer().run(perception, action);
-		updateGameStatus(*player, action);
+		updateGameStatus(*player, action, team);
 	}
 }
 

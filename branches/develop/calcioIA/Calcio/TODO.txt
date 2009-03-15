@@ -1,5 +1,2 @@
 Fabio:
 - Percezione posizione nel campo. (es. centrocampo è 50%,50%)
-
-Guido:
-- DummyPlayer meno dummy, caricare tutti i giocatori che vanno incontro alla palla

@@ -20,7 +20,6 @@ public:
 	void run(const Perceptions& perceptions, PlayerAction& playerAction);
 };
 
-
 class DummyTeamFactory : public AbstractPlayersFactory
 {
 public:

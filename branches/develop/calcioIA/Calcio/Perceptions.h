@@ -15,6 +15,19 @@ class Game;
 class Perceptions
 {
 public:
+	class PositionPct
+	{
+	public:
+		PositionPct(int width, int height);
+	
+		int width() const;
+		int height() const;
+
+	private:
+		int _width;
+		int _height;
+	};
+
 	typedef std::vector<PerceivedPlayer> PerceivedPlayers;
 
 	Perceptions(const Game& game, Team::Color color, const Player& player);

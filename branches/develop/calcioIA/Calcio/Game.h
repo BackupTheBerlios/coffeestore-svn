@@ -25,9 +25,8 @@ public:
 	void update();
 
 private:
-	//void initTeam(const Team& team);
 	void updateTeam(const Team& team);
-	void updateGameStatus(Player& player, const PlayerAction& playerAction);
+	void updateGameStatus(Player& player, const PlayerAction& playerAction, const Team& team);
 
 	GameConfiguration _gameConfiguration;
 	Field _field;

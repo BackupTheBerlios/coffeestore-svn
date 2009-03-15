@@ -39,7 +39,7 @@ private:
 
 int main(int argc,char** argv)
 {
-	MyApplication app(800, 450);
+	MyApplication app(800, 500);
 	app.initialize(argc, argv);
 	return 0;
 }

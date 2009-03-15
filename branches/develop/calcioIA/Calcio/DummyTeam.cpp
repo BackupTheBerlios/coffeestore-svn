@@ -1,7 +1,6 @@
 #include "DummyTeam.h"
 #include "Perceptions.h"
 #include "Team.h"
-#include "Logger.h"
 #include "PlayerAction.h"
 #include <cmath>
 #include <cstdlib>
@@ -40,14 +39,12 @@ void DummyPlayer::run(const Perceptions& perceptions, PlayerAction& playerAction
 
 	if (perceptions.isBallkickable())
 	{
-		LOG_STD << "kick " << t;
 		playerAction.doKick(t + (Vector((float)rand(), (float)rand())*dir).normalize());
 		if (dir==-1)
 			playerAction.doRun(t);
 	}
 	else
 	{
-		LOG_STD << "move " << t;
 		playerAction.doRun(t);
 	}
 }

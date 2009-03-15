@@ -15,6 +15,22 @@ Perceptions::Perceptions(const Game& game, Team::Color color, const Player& play
 	initTeamMateVect(game);
 }
 
+Perceptions::PositionPct::PositionPct(int width, int height)
+	:	_width(width), _height(height)
+{
+
+}
+
+int Perceptions::PositionPct::width() const
+{
+	return _width;
+}
+
+int Perceptions::PositionPct::height() const
+{
+	return _height;
+}
+
 const Point& Perceptions::ballPosition() const
 {
 	return _ball.position();
