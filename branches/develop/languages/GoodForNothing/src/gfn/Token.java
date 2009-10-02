@@ -2,32 +2,61 @@ package gfn;
 
 public class Token
 {
+	public enum Type
+	{
+		ADD,
+		MUL,
+		SUB,
+		DIV,
+		ASSIGNMENT,
+		STRING,
+		NUMBER,
+		VAR,
+		IDENTIFIER,
+		IF,
+		FOR,
+		TO,
+		DO,
+		END,
+		PRINT,
+		ENDSTATEMENT,
+	}
+
 	private String value;
+	private Type type;
 	
-	public Token(String value)
+	public Token(String value, Type type)
 	{
 		this.value = value;
+		this.type = type;
 	}
 	
 	public String getValue()
 	{
 		return value;
 	}
+	
+	public Type getType()
+	{
+		return type;
+	}
+
 
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (!(obj instanceof Token))
+		if (!getClass().equals(obj.getClass()))
 		{
 			return false;
 		}
 		
-		return value.equals(((Token) obj).value);
+		Token token = (Token) obj;
+		return value.equals(token.value) && type == token.type;
 	}
 
 	@Override
 	public String toString()
 	{
-		return value;
+		return String.format("%s|%s|", value, type.toString());
 	}
 }

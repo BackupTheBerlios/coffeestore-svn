@@ -1,6 +1,5 @@
 package gfn.test;
 
-import gfn.ArithOpToken;
 import gfn.Token;
 import gfn.Tokenizer;
 
@@ -25,15 +24,17 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("x + x");
 		
-		assertEquals(ArithOpToken.add, tokenizer.next());
+		tokenizer.next();
+		assertEquals(new Token("+", Token.Type.ADD), tokenizer.next());
 	}
 	
 	@Test
-	public void testWithNoToken()
+	public void testIdToken()
 	{
 		Iterator<Token> tokenizer = getTokenizer("x");
 		
-		assertFalse(tokenizer.hasNext());
+		assertTrue(tokenizer.hasNext());
+		assertEquals(new Token("x", Token.Type.IDENTIFIER), tokenizer.next());
 	}
 	
 	@Test
@@ -41,6 +42,12 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("x + y + z");
 		
+		assertTrue(tokenizer.hasNext());
+		tokenizer.next();
+		assertTrue(tokenizer.hasNext());
+		tokenizer.next();
+		assertTrue(tokenizer.hasNext());
+		tokenizer.next();
 		assertTrue(tokenizer.hasNext());
 		tokenizer.next();
 		assertTrue(tokenizer.hasNext());
@@ -53,8 +60,10 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("x + y + z");
 		
-		assertEquals(ArithOpToken.add, tokenizer.next());
-		assertEquals(ArithOpToken.add, tokenizer.next());
+		tokenizer.next();
+		assertEquals(new Token("+", Token.Type.ADD), tokenizer.next());
+		tokenizer.next();
+		assertEquals(new Token("+", Token.Type.ADD), tokenizer.next());
 	}
 
 	@Test
@@ -62,7 +71,8 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("x * y");
 		
-		assertEquals(ArithOpToken.mul, tokenizer.next());
+		tokenizer.next();
+		assertEquals(new Token("*", Token.Type.MUL), tokenizer.next());
 	}
 	
 	@Test
@@ -70,7 +80,8 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("x - y");
 		
-		assertEquals(ArithOpToken.sub, tokenizer.next());
+		tokenizer.next();
+		assertEquals(new Token("-", Token.Type.SUB), tokenizer.next());
 	}
 	
 	@Test
@@ -78,7 +89,8 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("x / y");
 		
-		assertEquals(ArithOpToken.div, tokenizer.next());
+		tokenizer.next();
+		assertEquals(new Token("/", Token.Type.DIV), tokenizer.next());
 	}
 	
 	@Test
@@ -86,7 +98,110 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("x * y\nx + y");
 		
-		assertEquals(ArithOpToken.mul, tokenizer.next());
-		assertEquals(ArithOpToken.add, tokenizer.next());
+		tokenizer.next();
+		assertEquals(new Token("*", Token.Type.MUL), tokenizer.next());
+		tokenizer.next();
+		tokenizer.next();
+		assertEquals(new Token("+", Token.Type.ADD), tokenizer.next());
 	}
+	
+	@Test
+	public void testTwoStringsWithSpace()
+	{
+		Iterator<Token> tokenizer = getTokenizer("str1 str2");
+		
+		assertEquals(new Token("str1", Token.Type.IDENTIFIER), tokenizer.next());
+		assertEquals(new Token("str2", Token.Type.IDENTIFIER), tokenizer.next());
+	}
+	
+	@Test
+	public void testTwoStringsWithTab()
+	{
+		Iterator<Token> tokenizer = getTokenizer("str1\tstr2");
+		
+		assertEquals(new Token("str1", Token.Type.IDENTIFIER), tokenizer.next());
+		assertEquals(new Token("str2", Token.Type.IDENTIFIER), tokenizer.next());
+	}
+	
+	@Test
+	public void testIntegerToken()
+	{
+		Iterator<Token> tokenizer = getTokenizer("12");
+		
+		assertEquals(new Token("12", Token.Type.NUMBER), tokenizer.next());
+	}
+
+	@Test
+	public void testVarToken()
+	{
+		Iterator<Token> tokenizer = getTokenizer("var");
+		
+		assertEquals(new Token("var", Token.Type.VAR), tokenizer.next());
+	}
+
+	@Test
+	public void testToToken()
+	{
+		Iterator<Token> tokenizer = getTokenizer("to");
+		
+		assertEquals(new Token("to", Token.Type.TO), tokenizer.next());
+	}
+	
+	@Test
+	public void testDoToken()
+	{
+		Iterator<Token> tokenizer = getTokenizer("do");
+		
+		assertEquals(new Token("do", Token.Type.DO), tokenizer.next());
+	}
+	
+	@Test
+	public void testEndToken()
+	{
+		Iterator<Token> tokenizer = getTokenizer("end");
+		
+		assertEquals(new Token("end", Token.Type.END), tokenizer.next());
+	}
+	
+	@Test
+	public void testPrintToken()
+	{
+		Iterator<Token> tokenizer = getTokenizer("print");
+		
+		assertEquals(new Token("print", Token.Type.PRINT), tokenizer.next());
+	}
+	
+	
+	@Test
+	public void testAssignmentToken()
+	{
+		Iterator<Token> tokenizer = getTokenizer("=");
+		
+		assertEquals(new Token("=", Token.Type.ASSIGNMENT), tokenizer.next());
+	}
+	
+	@Test
+	public void testEndOfStatementToken()
+	{
+		Iterator<Token> tokenizer = getTokenizer(";");
+		
+		assertEquals(new Token(";", Token.Type.ENDSTATEMENT), tokenizer.next());
+	}
+
+	@Test
+	public void testIfToken()
+	{
+		Iterator<Token> tokenizer = getTokenizer("if");
+		
+		assertEquals(new Token("if", Token.Type.IF), tokenizer.next());
+	}
+	
+	@Test
+	public void testForToken()
+	{
+		Iterator<Token> tokenizer = getTokenizer("for");
+		
+		assertEquals(new Token("for", Token.Type.FOR), tokenizer.next());
+	}
+	
 }

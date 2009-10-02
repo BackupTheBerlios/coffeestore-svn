@@ -26,7 +26,7 @@ public class Tokenizer implements Iterator<Token>
 			String line = bufferedReader.readLine();
 			if (line != null)
 			{
-				stringTokenizer = new StringTokenizer(line, "+*-/", true);	
+				stringTokenizer = new StringTokenizer(line, " \t+*-/;=", true);	
 				eatToken();
 			}
 		}
@@ -42,19 +42,63 @@ public class Tokenizer implements Iterator<Token>
 			
 			if (token.equals("+"))
 			{
-				currentToken = ArithOpToken.add;
+				currentToken = new Token(token, Token.Type.ADD);
 			}
 			else if (token.equals("*"))
 			{
-				currentToken = ArithOpToken.mul;
+				currentToken = new Token(token, Token.Type.MUL);
 			}
 			else if (token.equals("-"))
 			{
-				currentToken = ArithOpToken.sub;
+				currentToken = new Token(token, Token.Type.SUB);
 			}
 			else if (token.equals("/"))
 			{
-				currentToken = ArithOpToken.div;
+				currentToken = new Token(token, Token.Type.DIV);
+			}
+			else if (token.equals("var"))
+			{
+				currentToken = new Token(token, Token.Type.VAR);
+			}
+			else if (token.equals("to"))
+			{
+				currentToken = new Token(token, Token.Type.TO);
+			}
+			else if (token.equals("do"))
+			{
+				currentToken = new Token(token, Token.Type.DO);
+			}
+			else if (token.equals("end"))
+			{
+				currentToken = new Token(token, Token.Type.END);
+			}
+			else if (token.equals("print"))
+			{
+				currentToken = new Token(token, Token.Type.PRINT);
+			}
+			else if (token.equals(";"))
+			{
+				currentToken = new Token(token, Token.Type.ENDSTATEMENT);
+			}
+			else if (token.equals("="))
+			{
+				currentToken = new Token(token, Token.Type.ASSIGNMENT);
+			}
+			else if (token.equals("for"))
+			{
+				currentToken = new Token(token, Token.Type.FOR);
+			}
+			else if (token.equals("if"))
+			{
+				currentToken = new Token(token, Token.Type.IF);
+			}
+			else if (token.matches("\\d+"))
+			{
+				currentToken = new Token(token, Token.Type.NUMBER);
+			}
+			else if (token.matches("\\w+"))
+			{
+				currentToken = new Token(token, Token.Type.IDENTIFIER);
 			}
 		}
 		
