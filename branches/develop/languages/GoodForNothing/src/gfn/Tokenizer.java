@@ -1,9 +1,10 @@
 package gfn;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 
@@ -12,13 +13,35 @@ public class Tokenizer implements Iterator<Token>
 	BufferedReader bufferedReader;
 	StringTokenizer stringTokenizer;
 	Token currentToken;
+
+	HashMap<String, TokenType> tokenTypes;
+	ArrayList<TokenType> regexTokenTypes;
 	
 	public Tokenizer(Reader reader)
 	{
+		createTokenTypes();
 		bufferedReader = new BufferedReader(reader);
 		eatLine();
 	}
 
+	private void createTokenTypes()
+	{
+		tokenTypes = new HashMap<String, TokenType>();
+		regexTokenTypes = new ArrayList<TokenType>();
+		
+		for (TokenType tokenType : TokenType.values())
+		{
+			if (!tokenType.needRegex())
+			{
+				tokenTypes.put(tokenType.getTokenValue(), tokenType);
+			}
+			else
+			{
+				regexTokenTypes.add(tokenType);
+			}
+		}
+	}
+	
 	private void eatLine()
 	{
 		try
@@ -38,73 +61,32 @@ public class Tokenizer implements Iterator<Token>
 		currentToken = null;
 		while (currentToken == null && stringTokenizer.hasMoreElements())
 		{
-			String token = stringTokenizer.nextToken();
-			
-			if (token.equals("+"))
-			{
-				currentToken = new Token(token, Token.Type.ADD);
-			}
-			else if (token.equals("*"))
-			{
-				currentToken = new Token(token, Token.Type.MUL);
-			}
-			else if (token.equals("-"))
-			{
-				currentToken = new Token(token, Token.Type.SUB);
-			}
-			else if (token.equals("/"))
-			{
-				currentToken = new Token(token, Token.Type.DIV);
-			}
-			else if (token.equals("var"))
-			{
-				currentToken = new Token(token, Token.Type.VAR);
-			}
-			else if (token.equals("to"))
-			{
-				currentToken = new Token(token, Token.Type.TO);
-			}
-			else if (token.equals("do"))
-			{
-				currentToken = new Token(token, Token.Type.DO);
-			}
-			else if (token.equals("end"))
-			{
-				currentToken = new Token(token, Token.Type.END);
-			}
-			else if (token.equals("print"))
-			{
-				currentToken = new Token(token, Token.Type.PRINT);
-			}
-			else if (token.equals(";"))
-			{
-				currentToken = new Token(token, Token.Type.ENDSTATEMENT);
-			}
-			else if (token.equals("="))
-			{
-				currentToken = new Token(token, Token.Type.ASSIGNMENT);
-			}
-			else if (token.equals("for"))
-			{
-				currentToken = new Token(token, Token.Type.FOR);
-			}
-			else if (token.equals("if"))
-			{
-				currentToken = new Token(token, Token.Type.IF);
-			}
-			else if (token.matches("\\d+"))
-			{
-				currentToken = new Token(token, Token.Type.NUMBER);
-			}
-			else if (token.matches("\\w+"))
-			{
-				currentToken = new Token(token, Token.Type.IDENTIFIER);
-			}
+			matchToken(stringTokenizer.nextToken());
 		}
 		
 		if (currentToken == null && !stringTokenizer.hasMoreElements())
 		{
 			eatLine();
+		}
+	}
+
+	private void matchToken(String tokenValue)
+	{
+		TokenType tokenType = tokenTypes.get(tokenValue);
+		if (tokenType != null)
+		{
+			currentToken = new Token(tokenValue, tokenType);
+		}
+		else
+		{
+			for (TokenType regexTokenType : regexTokenTypes)
+			{
+				if (tokenValue.matches(regexTokenType.getTokenValue()))
+				{
+					currentToken = new Token(tokenValue, regexTokenType);
+					break;
+				}
+			}
 		}
 	}
 

@@ -1,6 +1,7 @@
 package gfn.test;
 
 import gfn.Token;
+import gfn.TokenType;
 import gfn.Tokenizer;
 
 import java.io.Reader;
@@ -25,7 +26,7 @@ public class TestTokenizer
 		Iterator<Token> tokenizer = getTokenizer("x + x");
 		
 		tokenizer.next();
-		assertEquals(new Token("+", Token.Type.ADD), tokenizer.next());
+		assertEquals(new Token("+", TokenType.ADD), tokenizer.next());
 	}
 	
 	@Test
@@ -34,7 +35,7 @@ public class TestTokenizer
 		Iterator<Token> tokenizer = getTokenizer("x");
 		
 		assertTrue(tokenizer.hasNext());
-		assertEquals(new Token("x", Token.Type.IDENTIFIER), tokenizer.next());
+		assertEquals(new Token("x", TokenType.IDENTIFIER), tokenizer.next());
 	}
 	
 	@Test
@@ -61,9 +62,9 @@ public class TestTokenizer
 		Iterator<Token> tokenizer = getTokenizer("x + y + z");
 		
 		tokenizer.next();
-		assertEquals(new Token("+", Token.Type.ADD), tokenizer.next());
+		assertEquals(new Token("+", TokenType.ADD), tokenizer.next());
 		tokenizer.next();
-		assertEquals(new Token("+", Token.Type.ADD), tokenizer.next());
+		assertEquals(new Token("+", TokenType.ADD), tokenizer.next());
 	}
 
 	@Test
@@ -72,7 +73,7 @@ public class TestTokenizer
 		Iterator<Token> tokenizer = getTokenizer("x * y");
 		
 		tokenizer.next();
-		assertEquals(new Token("*", Token.Type.MUL), tokenizer.next());
+		assertEquals(new Token("*", TokenType.MUL), tokenizer.next());
 	}
 	
 	@Test
@@ -81,7 +82,7 @@ public class TestTokenizer
 		Iterator<Token> tokenizer = getTokenizer("x - y");
 		
 		tokenizer.next();
-		assertEquals(new Token("-", Token.Type.SUB), tokenizer.next());
+		assertEquals(new Token("-", TokenType.SUB), tokenizer.next());
 	}
 	
 	@Test
@@ -90,7 +91,7 @@ public class TestTokenizer
 		Iterator<Token> tokenizer = getTokenizer("x / y");
 		
 		tokenizer.next();
-		assertEquals(new Token("/", Token.Type.DIV), tokenizer.next());
+		assertEquals(new Token("/", TokenType.DIV), tokenizer.next());
 	}
 	
 	@Test
@@ -99,10 +100,10 @@ public class TestTokenizer
 		Iterator<Token> tokenizer = getTokenizer("x * y\nx + y");
 		
 		tokenizer.next();
-		assertEquals(new Token("*", Token.Type.MUL), tokenizer.next());
+		assertEquals(new Token("*", TokenType.MUL), tokenizer.next());
 		tokenizer.next();
 		tokenizer.next();
-		assertEquals(new Token("+", Token.Type.ADD), tokenizer.next());
+		assertEquals(new Token("+", TokenType.ADD), tokenizer.next());
 	}
 	
 	@Test
@@ -110,8 +111,8 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("str1 str2");
 		
-		assertEquals(new Token("str1", Token.Type.IDENTIFIER), tokenizer.next());
-		assertEquals(new Token("str2", Token.Type.IDENTIFIER), tokenizer.next());
+		assertEquals(new Token("str1", TokenType.IDENTIFIER), tokenizer.next());
+		assertEquals(new Token("str2", TokenType.IDENTIFIER), tokenizer.next());
 	}
 	
 	@Test
@@ -119,8 +120,8 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("str1\tstr2");
 		
-		assertEquals(new Token("str1", Token.Type.IDENTIFIER), tokenizer.next());
-		assertEquals(new Token("str2", Token.Type.IDENTIFIER), tokenizer.next());
+		assertEquals(new Token("str1", TokenType.IDENTIFIER), tokenizer.next());
+		assertEquals(new Token("str2", TokenType.IDENTIFIER), tokenizer.next());
 	}
 	
 	@Test
@@ -128,7 +129,7 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("12");
 		
-		assertEquals(new Token("12", Token.Type.NUMBER), tokenizer.next());
+		assertEquals(new Token("12", TokenType.NUMBER), tokenizer.next());
 	}
 
 	@Test
@@ -136,7 +137,7 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("var");
 		
-		assertEquals(new Token("var", Token.Type.VAR), tokenizer.next());
+		assertEquals(new Token("var", TokenType.VAR), tokenizer.next());
 	}
 
 	@Test
@@ -144,7 +145,7 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("to");
 		
-		assertEquals(new Token("to", Token.Type.TO), tokenizer.next());
+		assertEquals(new Token("to", TokenType.TO), tokenizer.next());
 	}
 	
 	@Test
@@ -152,7 +153,7 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("do");
 		
-		assertEquals(new Token("do", Token.Type.DO), tokenizer.next());
+		assertEquals(new Token("do", TokenType.DO), tokenizer.next());
 	}
 	
 	@Test
@@ -160,7 +161,7 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("end");
 		
-		assertEquals(new Token("end", Token.Type.END), tokenizer.next());
+		assertEquals(new Token("end", TokenType.END), tokenizer.next());
 	}
 	
 	@Test
@@ -168,7 +169,7 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("print");
 		
-		assertEquals(new Token("print", Token.Type.PRINT), tokenizer.next());
+		assertEquals(new Token("print", TokenType.PRINT), tokenizer.next());
 	}
 	
 	
@@ -177,7 +178,7 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("=");
 		
-		assertEquals(new Token("=", Token.Type.ASSIGNMENT), tokenizer.next());
+		assertEquals(new Token("=", TokenType.ASSIGNMENT), tokenizer.next());
 	}
 	
 	@Test
@@ -185,7 +186,7 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer(";");
 		
-		assertEquals(new Token(";", Token.Type.ENDSTATEMENT), tokenizer.next());
+		assertEquals(new Token(";", TokenType.ENDSTATEMENT), tokenizer.next());
 	}
 
 	@Test
@@ -193,7 +194,7 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("if");
 		
-		assertEquals(new Token("if", Token.Type.IF), tokenizer.next());
+		assertEquals(new Token("if", TokenType.IF), tokenizer.next());
 	}
 	
 	@Test
@@ -201,7 +202,7 @@ public class TestTokenizer
 	{
 		Iterator<Token> tokenizer = getTokenizer("for");
 		
-		assertEquals(new Token("for", Token.Type.FOR), tokenizer.next());
+		assertEquals(new Token("for", TokenType.FOR), tokenizer.next());
 	}
 	
 }

@@ -2,30 +2,10 @@ package gfn;
 
 public class Token
 {
-	public enum Type
-	{
-		ADD,
-		MUL,
-		SUB,
-		DIV,
-		ASSIGNMENT,
-		STRING,
-		NUMBER,
-		VAR,
-		IDENTIFIER,
-		IF,
-		FOR,
-		TO,
-		DO,
-		END,
-		PRINT,
-		ENDSTATEMENT,
-	}
-
 	private String value;
-	private Type type;
+	private TokenType type;
 	
-	public Token(String value, Type type)
+	public Token(String value, TokenType type)
 	{
 		this.value = value;
 		this.type = type;
@@ -36,7 +16,7 @@ public class Token
 		return value;
 	}
 	
-	public Type getType()
+	public TokenType getType()
 	{
 		return type;
 	}
@@ -58,5 +38,11 @@ public class Token
 	public String toString()
 	{
 		return String.format("%s|%s|", value, type.toString());
+	}
+	
+	public boolean isArithOp()
+	{
+		TokenType tokenType = getType();
+		return (tokenType == TokenType.ADD || tokenType == TokenType.SUB || tokenType == TokenType.MUL || tokenType == TokenType.DIV);
 	}
 }
